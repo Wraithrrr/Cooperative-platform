@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NITDA Loan Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <img src="Nitda logo.png" alt="NITDA Logo" class="logo">
+                <h2>Loan Dashboard</h2>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="#"><i class="fas fa-hand-holding-usd"></i> New Loan</a>
+                <a href="#"><i class="fas fa-exchange-alt"></i> Transactions</a>
+                <a href="#"><i class="fas fa-user-cog"></i> Account</a>
+                <a href="#"><i class="fas fa-headset"></i> Support</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Welcome to Your Loan Dashboard</h1>
+                <div class="user-profile">
+                    <span>Farouk Mahmoud</span>
+                    <div class="avatar">JD</div>
+                </div>
+            </div>
+
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3><i class="fas fa-file-invoice-dollar"></i> Current Loans</h3>
+                    <div class="loan-status">
+                        <p>Active Loans: <strong>2</strong></p>
+                        <p>Total Outstanding: <strong>₦1,250,000</strong></p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%"></div>
+                        </div>
+                        <p>Repayment Progress: 65%</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-hand-holding-usd"></i> Apply for New Loan</h3>
+                    <form id="loanForm">
+                        <div class="form-group">
+                            <label>Loan Amount (₦)</label>
+                            <input type="number" id="loanAmount" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Loan Purpose</label>
+                            <select id="loanPurpose" required>
+                                <option value="">Select Purpose</option>
+                                <option>Emergency</option>
+                                <option>Education</option>
+                                <option>Home Improvement</option>
+                                <option>Business</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Repayment Period (months)</label>
+                            <input type="number" id="repaymentPeriod" min="1" max="24" required>
+                        </div>
+                        <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Apply Now</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-wallet"></i> Funds Management</h3>
+                    <div class="finance-actions">
+                        <div class="balance-summary">
+                            <h4>Available Balance</h4>
+                            <div class="balance-amount">₦2,750,000</div>
+                        </div>
+
+                        <form id="withdrawalForm" class="withdrawal-form">
+                            <div class="form-group">
+                                <label>Withdrawal Amount (₦)</label>
+                                <input type="number" id="withdrawAmount" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Destination Account</label>
+                                <select id="destinationAccount" required>
+                                    <option value="">Select Account</option>
+                                    <option>First Bank - ●●●● 2345</option>
+                                    <option>GT Bank - ●●●● 6789</option>
+                                    <option>Zenith Bank - ●●●● 9012</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group security-pin">
+                                <label>Transaction PIN</label>
+                                <input type="password" id="transactionPin" maxlength="4" required>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-coins"></i> Process Withdrawal
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-clock"></i> Recent Transactions</h3>
+                    <ul class="transaction-list">
+                        <li>₦150,000 - Loan Disbursement - 12/03/2024</li>
+                        <li>₦25,000 - Repayment - 05/03/2024</li>
+                        <li>₦500,000 - Loan Approved - 28/02/2024</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-chart-line"></i> Financial Summary</h3>
+                    <div class="summary-item">
+                        <span>Total Loans Taken:</span>
+                        <strong>₦2,500,000</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>Total Repaid:</span>
+                        <strong>₦1,250,000</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>Available Limit:</span>
+                        <strong>₦750,000</strong>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3><i class="fas fa-check-circle"></i> Confirm Withdrawal</h3>
+            <div class="transaction-details">
+                <p>Amount: <strong id="confirmAmount"></strong></p>
+                <p>Destination: <strong id="confirmAccount"></strong></p>
+                <p>Fee: <strong>₦50.00</strong></p>
+                <p>Total Debit: <strong id="confirmTotal"></strong></p>
+            </div>
+            <button class="confirm-btn"><i class="fas fa-check"></i> Confirm Transaction</button>
+        </div>
+    </div>
+
+    <script src="Dashboard.js"></script>
+</body>
+
+</html>
