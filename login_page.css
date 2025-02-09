@@ -1,0 +1,118 @@
+/* login.css */
+.login-container {
+    background: rgba(255, 255, 255, 0.98);
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 2rem auto;
+}
+
+.login-header {
+    background: linear-gradient(45deg, #004d40, #00796b);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.login-header .logo {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+.login-header h1 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.login-header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.login-form {
+    padding: 2rem 1.5rem;
+}
+
+.login-input-group {
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.login-input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.login-input-group label {
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 0 0.3rem;
+    color: #666;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.login-input-group input:focus + label,
+.login-input-group input:not(:placeholder-shown) + label {
+    top: -0.6rem;
+    font-size: 0.8rem;
+    left: 0.5rem;
+}
+
+.login-submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    background: #004d40; /* Add button color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.login-help {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.login-help a {
+    color: #00796b;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.login-help a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        width: 95%;
+        margin: 1rem auto;
+    }
+    
+    .login-header {
+        padding: 1rem;
+    }
+    
+    .login-header .logo {
+        width: 80px;
+    }
+    
+    .login-form {
+        padding: 1.5rem 1rem;
+    }
+    
+    .login-header h1 {
+        font-size: 1.3rem;
+    }
+}

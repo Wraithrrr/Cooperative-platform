@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NITDA Loan Application</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="loan_mangement.css">
+</head>
+<body>
+  <!-- Header with NITDA logo and title -->
+  <header class="header">
+    <div class="logo-section">
+      <!-- Replace "nitda-logo.png" with the actual path to the NITDA logo -->
+      <img src="Nitda logo.png" alt="NITDA Logo" class="logo">
+      <h1>NITDA Loan Application</h1>
+    </div>
+  </header>
+
+  <!-- Main content area -->
+  <main class="main-content">
+    <div class="loan-container">
+      <!-- Form header with gradient background -->
+      <div class="form-header">
+        <h2>Request for Loan</h2>
+        <p>
+          Please fill out the form below and provide your guarantor details.
+          Once submitted, the status of your application will be displayed below.
+        </p>
+      </div>
+
+      <!-- Loan application form -->
+      <form id="loanForm" class="loan-form">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="loanAmount">Loan Amount</label>
+          <input type="number" id="loanAmount" name="loanAmount" placeholder="Enter loan amount" required>
+        </div>
+        <div class="form-group">
+          <label for="loanPurpose">Loan Purpose</label>
+          <textarea id="loanPurpose" name="loanPurpose" placeholder="Describe the purpose of the loan" rows="3" required></textarea>
+        </div>
+        <!-- Guarantor details -->
+        <div class="form-group">
+          <label for="guarantorName">Guarantor Name</label>
+          <input type="text" id="guarantorName" name="guarantorName" placeholder="Enter guarantor's name" required>
+        </div>
+        <div class="form-group">
+          <label for="guarantorContact">Guarantor Contact</label>
+          <input type="tel" id="guarantorContact" name="guarantorContact" placeholder="Enter guarantor's contact number" required>
+        </div>
+        <button type="submit" class="btn-submit">Submit Application</button>
+      </form>
+
+      <!-- Submission status area (hidden by default) -->
+      <div id="submissionStatus" class="submission-status" style="display: none;">
+        <!-- The status message will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Link to external JavaScript file -->
+  <script src="loan_management.js"></script>
+</body>
+</html>

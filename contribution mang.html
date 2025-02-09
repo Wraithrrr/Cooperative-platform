@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NITDA - Contribution Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Include sidebar CSS -->
+  <link rel="stylesheet" href="sidebar.css">
+  <!-- Your existing styles -->
+  <link rel="stylesheet" href="contribution mang.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar container -->
+    <div id="sidebar-container"></div>
+
+    <!-- Rest of your contribution page content -->
+    <main class="main-content">
+      <!-- Your existing tables and content -->
+
+      <div class="container">
+        <header class="page-header">
+          <h1>Contribution Management</h1>
+          <p>National Information Technology Development Agency</p>
+        </header>
+
+        <!-- Contributing Employees Table -->
+        <div class="table-container">
+          <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search contributing employees...">
+          </div>
+          <table id="contributing-table">
+            <thead>
+              <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Contribution Amount</th>
+                <th>Date Set</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NITDA-001</td>
+                <td>John Doe</td>
+                <td>₦25,000</td>
+                <td>2025-02-01</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Non-Contributing Employees Table -->
+        <div class="table-container">
+          <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search non-contributing employees...">
+          </div>
+          <table id="non-contributing-table">
+            <thead>
+              <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NITDA-002</td>
+                <td>Jane Smith</td>
+                <td>IT Development</td>
+                <td><button class="remind-btn">Send Reminder</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Add Employee Button -->
+      <!-- Added onclick attribute to navigate to add_employee.html when clicked -->
+      <div class="add-employee-btn" onclick="window.location.href='add_employee.html';">
+        <i class="fas fa-plus fa-2x"></i>
+      </div>
+
+      <!-- Add Employee Modal -->
+      <div id="addModal" class="modal">
+        <div class="modal-content">
+          <h2>Add New Employee</h2>
+          <form id="employeeForm">
+            <input type="text" placeholder="Employee ID" required>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="text" placeholder="Department" required>
+            <button type="submit">Add Employee</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Load sidebar JavaScript -->
+  <script src="sidebar.js"></script>
+  <!-- Your existing scripts -->
+  <script src="contribution mang.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Registration - NITDA</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="add_employee.css">
+</head>
+<body>
+  <div class="registration-container">
+    <div class="form-header">
+      <h1><i class="fas fa-user-plus"></i> Employee Registration</h1>
+      <p>NITDA</p>
+    </div>
+
+    <form id="employeeForm" class="form-container">
+      <!-- Personal Information Section -->
+      <div class="form-section">
+        <h2>Personal Information</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" required>
+          </div>
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" required>
+          </div>
+          <div class="form-group">
+            <label>Gender</label>
+            <select required>
+              <option value="">Select Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Information Section -->
+      <div class="form-section">
+        <h2>Contact Information</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" pattern="[0-9]{11}" required>
+          </div>
+          <div class="form-group">
+            <label>Residential Address</label>
+            <textarea rows="3" required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Emergency Contact</label>
+            <input type="tel" pattern="[0-9]{11}" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employment Details Section -->
+      <div class="form-section">
+        <h2>Employment Details</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Employee ID</label>
+            <input type="text" required>
+          </div>
+          <div class="form-group">
+            <label>Department</label>
+            <select required>
+              <option value="">Select Department</option>
+              <option>IT Development</option>
+              <option>Human Resources</option>
+              <option>Finance</option>
+              <option>Operations</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Position/Title</label>
+            <input type="text" required>
+          </div>
+          <div class="form-group">
+            <label>Employment Date</label>
+            <input type="date" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Information -->
+      <div class="form-section">
+        <h2>Additional Information</h2>
+        <div class="form-group">
+          <label>Profile Photo</label>
+          <input type="file" accept="image/*" id="profilePhoto">
+          <img src="#" alt="Profile Preview" class="profile-preview" id="profilePreview">
+        </div>
+        <div class="form-group">
+          <label>Security Clearance Level</label>
+          <select required>
+            <option value="">Select Clearance Level</option>
+            <option>Level 1 - Basic</option>
+            <option>Level 2 - Confidential</option>
+            <option>Level 3 - Secret</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        <i class="fas fa-save"></i> Register Employee
+      </button>
+    </form>
+  </div>
+
+  <!-- Link to the external JavaScript file -->
+  <script src="add_employee.js"></script>
+</body>
+</html>

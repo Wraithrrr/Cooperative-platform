@@ -1,0 +1,48 @@
+
+/* Sidebar Container */
+.sidebar {
+    background: linear-gradient(45deg, #004d40, #00251a);
+    color: white;
+    padding: 1.5rem;
+    position: fixed;
+    width: 250px;
+    height: 100%;
+}
+
+/* Logo Section */
+.logo-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo-section .logo {
+    max-width: 100px;
+    margin-bottom: 1rem;
+    filter: brightness(0) invert(1);
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu .active {
+    background: #00796b;
+}
