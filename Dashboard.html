@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NITDA Loan Dashboard</title>
+    <title>Benevolence Cooperative Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="Dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <div class="dashboard-container">
-        <!-- Dynamic Sidebar Container -->
+        <!-- Sidebar will be dynamically loaded here -->
         <div id="sidebar-container"></div>
 
         <main class="main-content">
             <div class="header">
-                <h1>Welcome to Your Loan Dashboard</h1>
+                <h1>Welcome to Your Benevolence Cooperative Dashboard</h1>
                 <div class="user-profile">
                     <span>Farouk Mahmoud</span>
-                    <div class="avatar">JD</div>
+                    <div class="avatar">FM</div>
                 </div>
             </div>
 
             <div class="dashboard-cards">
                 <div class="card">
-                    <h3><i class="fas fa-file-invoice-dollar"></i> Current Loans</h3>
+                    <h3><i class="fas fa-file-invoice-dollar"></i> Current Credit</h3>
                     <div class="loan-status">
-                        <p>Active Loans: <strong>2</strong></p>
+                        <p>Active Credits: <strong>2</strong></p>
                         <p>Total Outstanding: <strong>₦1,250,000</strong></p>
                         <div class="progress-bar">
                             <div class="progress" style="width: 65%"></div>
@@ -36,25 +39,35 @@
                 </div>
 
                 <div class="card">
-                    <h3><i class="fas fa-hand-holding-usd"></i> Apply for New Loan</h3>
+                    <h3><i class="fas fa-chart-line"></i> Financial Analysis</h3>
+                    <label for="graphType">Select Graph:</label>
+                    <select id="graphType">
+                        <option value="financialHistory">Financial History</option>
+                        <option value="creditDistribution">Credit Distribution</option>
+                        <option value="totalContribution">Total Contribution</option>
+                    </select>
+                    <canvas id="dashboardChart"></canvas>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-hand-holding-usd"></i> Apply for Credit</h3>
                     <form id="loanForm">
                         <div class="form-group">
-                            <label>Loan Amount (₦)</label>
+                            <label>Credit Amount (₦)</label>
                             <input type="number" id="loanAmount" required>
                         </div>
                         <div class="form-group">
-                            <label>Loan Purpose</label>
+                            <label>Credit Type</label>
                             <select id="loanPurpose" required>
-                                <option value="">Select Purpose</option>
-                                <option>Emergency</option>
-                                <option>Education</option>
-                                <option>Home Improvement</option>
-                                <option>Business</option>
+                                <option value="">Select Type</option>
+                                <option>Cash</option>
+                                <option>Facility</option>
+                                <option>Lease</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Repayment Period (months)</label>
-                            <input type="number" id="repaymentPeriod" min="1" max="24" required>
+                            <input type="number" id="repaymentPeriod" min="1" max="10" required>
                         </div>
                         <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Apply Now</button>
                     </form>
@@ -64,13 +77,17 @@
                     <h3><i class="fas fa-wallet"></i> Funds Management</h3>
                     <div class="finance-actions">
                         <div class="balance-summary">
-                            <h4>Available Balance</h4>
-                            <div class="balance-amount">₦2,750,000</div>
+                            <h4>Available Balance <i class="fas fa-eye" id="toggleBalance"></i></h4>
+                            <div class="balance-amount" id="balanceAmount">₦2,750,000</div>
+                        </div>
+                        <div class="balance-breakdown">
+                            <p>Savings: <strong>₦1,650,000</strong> (60%)</p>
+                            <p>Investment: <strong>₦1,100,000</strong> (40%)</p>
                         </div>
                         <form id="withdrawalForm" class="withdrawal-form">
                             <div class="form-group">
                                 <label>Withdrawal Amount (₦)</label>
-                                <input type="number" id="withdrawAmount" required>
+                                <input type="number" id="withdrawAmount" max="1650000" required>
                             </div>
                             <div class="form-group">
                                 <label>Destination Account</label>
@@ -83,34 +100,23 @@
                             </div>
                             <div class="form-group security-pin">
                                 <label>Transaction PIN</label>
-                                <input type="password" id="transactionPin" maxlength="4" required>
+                                <input type="password" id="transactionPin" maxlength="4" pattern="\d{4}" required>
                             </div>
                             <button type="submit" class="submit-btn">
                                 <i class="fas fa-coins"></i> Process Withdrawal
                             </button>
                         </form>
+                        <div id="withdrawalStatus" class="withdrawal-status" style="display: none;">
+                            <p>Withdrawal request is being processed...</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Confirmation Modal -->
-    <div id="confirmationModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3><i class="fas fa-check-circle"></i> Confirm Withdrawal</h3>
-            <div class="transaction-details">
-                <p>Amount: <strong id="confirmAmount"></strong></p>
-                <p>Destination: <strong id="confirmAccount"></strong></p>
-                <p>Fee: <strong>₦50.00</strong></p>
-                <p>Total Debit: <strong id="confirmTotal"></strong></p>
-            </div>
-            <button class="confirm-btn"><i class="fas fa-check"></i> Confirm Transaction</button>
-        </div>
-    </div>
-
-    <script src="sidebar.js"></script>
     <script src="Dashboard.js"></script>
+    <script src="sidebar.js"></script>
 </body>
+
 </html>

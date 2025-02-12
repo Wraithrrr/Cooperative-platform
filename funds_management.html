@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funds Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="Dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar will be dynamically loaded here -->
+        <div id="sidebar-container"></div>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Funds Management</h1>
+            </div>
+
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3><i class="fas fa-wallet"></i> Withdrawal Requests</h3>
+                    <table id="withdrawalRequestsTable">
+                        <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Name</th>
+                                <th>Requested Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example row -->
+                            <tr>
+                                <td>NITDA-001</td>
+                                <td>John Doe</td>
+                                <td>₦990,000</td>
+                                <td>
+                                    <button class="approve-btn">Approve</button>
+                                    <button class="decline-btn">Decline</button>
+                                </td>
+                            </tr>
+                            <!-- More rows will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="Dashboard.js"></script>
+    <script src="sidebar.js"></script>
+    <script>
+        // Example data for demonstration
+        const withdrawalRequests = [
+            { employeeId: 'NITDA-002', name: 'Jane Smith', amount: '₦660,000' },
+            { employeeId: 'NITDA-003', name: 'Michael Johnson', amount: '₦780,000' }
+        ];
+
+        // Load withdrawal requests into the table
+        const tableBody = document.querySelector('#withdrawalRequestsTable tbody');
+        withdrawalRequests.forEach(request => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${request.employeeId}</td>
+                <td>${request.name}</td>
+                <td>${request.amount}</td>
+                <td>
+                    <button class="approve-btn">Approve</button>
+                    <button class="decline-btn">Decline</button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+        // Handle approve and decline actions
+        document.querySelectorAll('.approve-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Withdrawal request approved');
+                button.closest('tr').remove();
+            });
+        });
+
+        document.querySelectorAll('.decline-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Withdrawal request declined');
+                button.closest('tr').remove();
+            });
+        });
+    </script>
+</body>
+
+</html>

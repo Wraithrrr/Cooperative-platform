@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
   <!-- Your existing styles -->
   <link rel="stylesheet" href="contribution mang.css">
 </head>
+
 <body>
   <div class="dashboard-container">
     <!-- Sidebar container -->
@@ -22,7 +24,7 @@
       <div class="container">
         <header class="page-header">
           <h1>Contribution Management</h1>
-          <p>National Information Technology Development Agency</p>
+          <p>Belovelence</p>
         </header>
 
         <!-- Contributing Employees Table -->
@@ -74,25 +76,34 @@
             </tbody>
           </table>
         </div>
-      </div>
 
-      <!-- Add Employee Button -->
-      <!-- Added onclick attribute to navigate to add_employee.html when clicked -->
-      <div class="add-employee-btn" onclick="window.location.href='add_employee.html';">
-        <i class="fas fa-plus fa-2x"></i>
-      </div>
-
-      <!-- Add Employee Modal -->
-      <div id="addModal" class="modal">
-        <div class="modal-content">
-          <h2>Add New Employee</h2>
-          <form id="employeeForm">
+        <!-- Add Contribution Amount Form -->
+        <div class="contribution-form-container">
+          <h2>Add Contribution Amount</h2>
+          <form id="contributionForm">
             <input type="text" placeholder="Employee ID" required>
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="text" placeholder="Department" required>
-            <button type="submit">Add Employee</button>
+            <input type="number" placeholder="Contribution Amount" required>
+            <button type="submit">Add Contribution</button>
           </form>
+        </div>
+
+        <!-- Add Employee Button -->
+        <div class="add-employee-btn" onclick="window.location.href='add_employee.html';">
+          <i class="fas fa-plus fa-2x"></i>
+        </div>
+
+        <!-- Add Employee Modal -->
+        <div id="addModal" class="modal">
+          <div class="modal-content">
+            <h2>Add New Employee</h2>
+            <form id="employeeForm">
+              <input type="text" placeholder="Employee ID" required>
+              <input type="text" placeholder="Full Name" required>
+              <input type="email" placeholder="Email" required>
+              <input type="text" placeholder="Department" required>
+              <button type="submit">Add Employee</button>
+            </form>
+          </div>
         </div>
       </div>
     </main>
@@ -103,4 +114,5 @@
   <!-- Your existing scripts -->
   <script src="contribution mang.js"></script>
 </body>
+
 </html>

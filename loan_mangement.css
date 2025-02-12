@@ -1,169 +1,169 @@
-/* NITDA Theme Colors & Variables */
-:root {
-    --primary-green: #004d40;          /* Darker green */
-    --secondary-green: #00796b;        /* Complementary darker green */
-    --accent-green: #C5E8B7;
-    --background-gradient: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
-  }
-  
-  /* Reset & Global Styles */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-  }
-  
-  body {
-    background: #f8fbf7;
-    min-height: 100vh;
-    background-image: radial-gradient(circle at 1px 1px, var(--accent-green) 1px, transparent 0);
-    background-size: 40px 40px;
-  }
-  
-  /* Header Styles */
-  .header {
-    background: var(--background-gradient);
-    padding: 1rem 2rem;
-    color: white;
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo-section {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .logo-section .logo {
-    width: 50px;
-    height: auto;
-    filter: brightness(0) invert(1);
-  }
-  
-  .header h1 {
-    font-size: 1.5rem;
-  }
-  
-  /* Main Content Styles */
-  .main-content {
-    padding: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  /* Loan Container */
-  .loan-container {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 25px rgba(0, 77, 64, 0.1);
-    border: 1px solid #e8f5e9;
-  }
-  
-  /* Form Header */
-  .form-header {
-    background: var(--background-gradient);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .form-header h2 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .form-header p {
-    font-size: 1rem;
-  }
-  
-  /* Loan Form Styles */
-  .loan-form {
-    display: grid;
-    gap: 1.5rem;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-group label {
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #2a5935;
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    padding: 0.8rem 1.2rem;
-    border: 1px solid #d0e7cd;
-    border-radius: 8px;
-    font-size: 1rem;
-    background: #f8fbf7;
-    transition: all 0.3s ease;
-  }
-  
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-green);
-    box-shadow: 0 0 0 3px rgba(0, 77, 64, 0.15);
-    background: white;
-  }
-  
-  /* Submit Button */
-  .btn-submit {
-    background: var(--background-gradient);
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .btn-submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 77, 64, 0.3);
-  }
-  
-  /* Submission Status */
-  .submission-status {
-    margin-top: 2rem;
-    background: #e0f7fa;
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid #b2ebf2;
-  }
-  
-  .submission-status h3 {
-    color: var(--primary-green);
-    margin-bottom: 0.5rem;
-  }
-  
-  .submission-status p {
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .loan-form {
-      grid-template-columns: 1fr;
-    }
-    .header h1 {
-      font-size: 1.3rem;
-    }
-  }
-  
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #004d40;
+  color: white;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.sidebar .logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar .logo {
+  height: 50px;
+}
+
+.sidebar .nav-menu {
+  flex: 1;
+}
+
+.sidebar .nav-menu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-menu a:hover,
+.sidebar .nav-menu a.active {
+  background-color: #00796b;
+}
+
+.dashboard-container {
+  display: flex;
+  flex: 1;
+  margin-left: 250px; /* Adjust this value to match the sidebar width */
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.header {
+  background-color: #004d40;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.credit-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.form-header {
+  background: linear-gradient(90deg, #004d40, #00796b);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px 8px 0 0;
+}
+
+.form-header h2 {
+  margin: 0;
+}
+
+.form-header p {
+  margin: 0.5rem 0 0;
+}
+
+.agreement-section {
+  margin-top: 1rem;
+}
+
+.agreement-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.credit-type-section {
+  margin-top: 2rem;
+}
+
+.credit-type-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.credit-type-btn {
+  padding: 1rem 2rem;
+  background-color: #004d40;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.credit-type-btn:hover {
+  background-color: #00796b;
+}
+
+.credit-type-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.apply-section {
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.btn-submit {
+  background-color: #004d40;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #00796b;
+}
+
+.submission-status {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #333;
+}
+
+.status-details {
+  margin-top: 1rem;
+}
+
+.status-pending {
+  color: #ff9800;
+}
