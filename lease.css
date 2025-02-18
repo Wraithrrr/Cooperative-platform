@@ -1,0 +1,157 @@
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #004d40;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.sidebar .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.sidebar .logo {
+    height: 50px;
+}
+
+.sidebar .nav-menu {
+    flex: 1;
+}
+
+.sidebar .nav-menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-menu a:hover,
+.sidebar .nav-menu a.active {
+    background-color: #00796b;
+}
+
+.dashboard-container {
+    display: flex;
+    flex: 1;
+    margin-left: 250px; /* Adjust this value to match the sidebar width */
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.header {
+    background-color: #004d40;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.loan-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.form-header {
+    background: linear-gradient(90deg, #004d40, #00796b);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px 8px 0 0;
+}
+
+.form-header h2 {
+    margin: 0;
+}
+
+.form-header p {
+    margin: 0.5rem 0 0;
+}
+
+.agreement-section {
+    margin-top: 1rem;
+}
+
+.agreement-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.loan-form {
+    margin-top: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn-submit {
+    background-color: #004d40;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #00796b;
+}
+
+.submission-status {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
+}
+
+.status-details {
+    margin-top: 1rem;
+}
+
+.status-pending {
+    color: #ff9800;
+}

@@ -1,4 +1,11 @@
 /* login.css */
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+}
+
 .login-container {
     background: rgba(255, 255, 255, 0.98);
     width: 90%;
@@ -22,13 +29,15 @@
 
 .login-header h1 {
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    /* Increased font size */
     margin-bottom: 0.5rem;
 }
 
 .login-header p {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    /* Increased font size */
 }
 
 .login-form {
@@ -36,44 +45,59 @@
 }
 
 .login-input-group {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
+    /* Increased margin for better spacing */
     position: relative;
 }
 
 .login-input-group input {
-    width: 100%;
-    padding: 0.8rem;
+    width: calc(100% - 1.6rem);
+    /* Adjust width to fit within the container */
+    padding: 1rem;
+    /* Increased padding for better readability */
     border: 2px solid #e0e0e0;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    /* Increased font size */
     transition: all 0.3s ease;
+    margin: 0 auto;
+    /* Center the input fields */
+    display: block;
+    /* Ensure the input fields are block elements */
 }
 
 .login-input-group label {
     position: absolute;
-    left: 0.8rem;
+    left: 1rem;
+    /* Adjust left position to fit within the container */
     top: 50%;
     transform: translateY(-50%);
     background: white;
     padding: 0 0.3rem;
     color: #666;
+    font-size: 1rem;
+    /* Increased font size */
     transition: all 0.3s ease;
     pointer-events: none;
 }
 
-.login-input-group input:focus + label,
-.login-input-group input:not(:placeholder-shown) + label {
+.login-input-group input:focus+label,
+.login-input-group input:not(:placeholder-shown)+label {
     top: -0.6rem;
-    font-size: 0.8rem;
-    left: 0.5rem;
+    font-size: 0.9rem;
+    left: 0.8rem;
+    /* Adjust left position to fit within the container */
 }
 
 .login-submit-btn {
     width: 100%;
-    padding: 0.8rem;
+    padding: 1rem;
+    /* Increased padding */
     margin-top: 1rem;
-    font-size: 1rem;
-    background: #004d40; /* Add button color */
+    font-size: 1.2rem;
+    /* Increased font size */
+    background: #004d40;
+    /* Add button color */
     color: white;
     border: none;
     border-radius: 8px;
@@ -87,7 +111,8 @@
 .login-help a {
     color: #00796b;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    /* Increased font size */
 }
 
 .login-help a:hover {
@@ -99,20 +124,46 @@
         width: 95%;
         margin: 1rem auto;
     }
-    
+
     .login-header {
         padding: 1rem;
     }
-    
+
     .login-header .logo {
         width: 80px;
     }
-    
+
     .login-form {
         padding: 1.5rem 1rem;
     }
-    
+
     .login-header h1 {
-        font-size: 1.3rem;
+        font-size: 1.8rem;
+        /* Adjusted font size for smaller screens */
+    }
+
+    .login-header p {
+        font-size: 1rem;
+        /* Adjusted font size for smaller screens */
+    }
+
+    .login-input-group input {
+        font-size: 1rem;
+        /* Adjusted font size for smaller screens */
+    }
+
+    .login-input-group label {
+        font-size: 0.9rem;
+        /* Adjusted font size for smaller screens */
+    }
+
+    .login-submit-btn {
+        font-size: 1rem;
+        /* Adjusted font size for smaller screens */
+    }
+
+    .login-help a {
+        font-size: 0.9rem;
+        /* Adjusted font size for smaller screens */
     }
 }

@@ -26,54 +26,7 @@
             </div>
 
             <div class="dashboard-cards">
-                <div class="card">
-                    <h3><i class="fas fa-file-invoice-dollar"></i> Current Credit</h3>
-                    <div class="loan-status">
-                        <p>Active Credits: <strong>2</strong></p>
-                        <p>Total Outstanding: <strong>₦1,250,000</strong></p>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 65%"></div>
-                        </div>
-                        <p>Repayment Progress: 65%</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3><i class="fas fa-chart-line"></i> Financial Analysis</h3>
-                    <label for="graphType">Select Graph:</label>
-                    <select id="graphType">
-                        <option value="financialHistory">Financial History</option>
-                        <option value="creditDistribution">Credit Distribution</option>
-                        <option value="totalContribution">Total Contribution</option>
-                    </select>
-                    <canvas id="dashboardChart"></canvas>
-                </div>
-
-                <div class="card">
-                    <h3><i class="fas fa-hand-holding-usd"></i> Apply for Credit</h3>
-                    <form id="loanForm">
-                        <div class="form-group">
-                            <label>Credit Amount (₦)</label>
-                            <input type="number" id="loanAmount" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Credit Type</label>
-                            <select id="loanPurpose" required>
-                                <option value="">Select Type</option>
-                                <option>Cash</option>
-                                <option>Facility</option>
-                                <option>Lease</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Repayment Period (months)</label>
-                            <input type="number" id="repaymentPeriod" min="1" max="10" required>
-                        </div>
-                        <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Apply Now</button>
-                    </form>
-                </div>
-
-                <div class="card">
+                <div class="card fund-management">
                     <h3><i class="fas fa-wallet"></i> Funds Management</h3>
                     <div class="finance-actions">
                         <div class="balance-summary">
@@ -110,6 +63,119 @@
                             <p>Withdrawal request is being processed...</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="card credit-status">
+                    <h3><i class="fas fa-file-invoice-dollar"></i> Current Credit</h3>
+                    <div class="loan-status">
+                        <p>Active Credits: <strong>2</strong></p>
+                        <p>Total Outstanding: <strong>₦1,250,000</strong></p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%"></div>
+                        </div>
+                        <p>Repayment Progress: 65%</p>
+                    </div>
+                </div>
+
+                <div class="card apply-credit">
+                    <h3><i class="fas fa-hand-holding-usd"></i> Apply for Credit</h3>
+                    <form id="loanForm">
+                        <div class="form-group">
+                            <label>Credit Amount (₦)</label>
+                            <input type="number" id="loanAmount" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Credit Type</label>
+                            <select id="loanPurpose" required>
+                                <option value="">Select Type</option>
+                                <option value="cash">Cash</option>
+                                <option value="facility">Facility</option>
+                                <option value="lease">Lease</option>
+                                <option value="partnership">Partnership</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Repayment Period (months)</label>
+                            <input type="number" id="repaymentPeriod" min="1" max="10" required>
+                        </div>
+                        <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Apply Now</button>
+                    </form>
+                </div>
+
+                <!-- Quick Services Card -->
+                <div class="card utility-services">
+                    <h3><i class="fas fa-bolt"></i> Quick Services</h3>
+                    <div class="services-grid">
+                        <button class="service-btn">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Airtime</span>
+                        </button>
+                        <button class="service-btn">
+                            <i class="fas fa-database"></i>
+                            <span>Data Plans</span>
+                        </button>
+                        <button class="service-btn">
+                            <i class="fas fa-tint"></i>
+                            <span>Water Bill</span>
+                        </button>
+                        <button class="service-btn">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Electricity</span>
+                        </button>
+                        <button class="service-btn">
+                            <i class="fas fa-tv"></i>
+                            <span>DSTV</span>
+                        </button>
+                        <button class="service-btn">
+                            <i class="fas fa-satellite-dish"></i>
+                            <span>GO TV</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card financial-analysis">
+                    <h3><i class="fas fa-chart-line"></i> Financial Analysis</h3>
+                    <label for="graphType">Select Graph:</label>
+                    <select id="graphType">
+                        <option value="financialHistory">Financial History</option>
+                        <option value="creditDistribution">Loan Distribution</option>
+                        <option value="totalContribution">Total Contribution</option>
+                    </select>
+                    <canvas id="dashboardChart"></canvas>
+                </div>
+
+                <div class="card financial-summary-card">
+                    <h3><i class="fas fa-table"></i> Financial Summary</h3>
+                    <button class="download-btn" onclick="downloadCSV()"><i class="fas fa-download"></i> Download
+                        Account History</button>
+                    <table class="financial-summary-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Amount</th>
+                                <th>Type</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody id="financial-summary-body">
+                            <tr>
+                                <td>2025-01-15</td>
+                                <td>10:30 AM</td>
+                                <td>₦5000</td>
+                                <td>Added</td>
+                                <td>Monthly Contribution</td>
+                            </tr>
+                            <tr>
+                                <td>2025-01-20</td>
+                                <td>02:45 PM</td>
+                                <td>₦2000</td>
+                                <td>Removed</td>
+                                <td>Credit Repayment</td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </main>

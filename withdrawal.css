@@ -1,0 +1,199 @@
+/* Global Reset & Fonts */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    display: flex;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: #004d40;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.sidebar .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.sidebar .logo {
+    height: 50px;
+}
+
+.sidebar .nav-menu {
+    flex: 1;
+}
+
+.sidebar .nav-menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-menu a:hover,
+.sidebar .nav-menu a.active {
+    background-color: #00796b;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    margin-left: 260px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* User Profile */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar {
+    background-color: #004d40;
+    color: white;
+    border-radius: 50%;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+}
+
+/* Withdrawal Section */
+.withdrawal-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.total-money {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.total-money h3 {
+    font-size: 1.8rem;
+    color: #004d40;
+}
+
+.withdrawal-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.withdrawal-form .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.withdrawal-form .form-group input,
+.withdrawal-form .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    background-color: #00796b;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.submit-btn:hover {
+    background-color: #004d40;
+}
+
+.policy-box {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.policy-box h4 {
+    margin-bottom: 1rem;
+    color: #004d40;
+}
+
+.policy-box ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.policy-box ul li {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.withdrawal-status {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.withdrawal-status i {
+    font-size: 1.5rem;
+}
+
+.withdrawal-status p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.status-pending {
+    background-color: #fff3e0;
+    color: #ef6c00;
+}
+
+.status-approved {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-declined {
+    background-color: #ffebee;
+    color: #d32f2f;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdrawal - Benevolence Cooperative</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="withdrawal.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar will be dynamically loaded here -->
+        <div id="sidebar-container"></div>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Withdrawal</h1>
+                <div class="user-profile">
+                    <span>Farouk Mahmoud</span>
+                    <div class="avatar">FM</div>
+                </div>
+            </div>
+
+            <div class="withdrawal-section">
+                <div class="total-money">
+                    <h3>Total Money: <span id="totalMoney">₦2,750,000</span></h3>
+                </div>
+
+                <form id="withdrawalForm" class="withdrawal-form">
+                    <div class="form-group">
+                        <label>Withdrawal Amount (₦)</label>
+                        <input type="number" id="withdrawAmount" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Destination Account</label>
+                        <select id="destinationAccount" required>
+                            <option value="">Select Account</option>
+                            <option>First Bank - ●●●● 2345</option>
+                            <option>GT Bank - ●●●● 6789</option>
+                            <option>Zenith Bank - ●●●● 9012</option>
+                        </select>
+                    </div>
+                    <div class="form-group security-pin">
+                        <label>Transaction PIN</label>
+                        <input type="password" id="transactionPin" maxlength="4" pattern="\d{4}" required>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-coins"></i> Process Withdrawal
+                    </button>
+                </form>
+
+                <div class="policy-box">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li>Admin fee is 2% of the withdrawal amount.</li>
+                        <li>The fee will be deducted after the payment is approved.</li>
+                        <li>Ensure your account details are correct to avoid delays.</li>
+                    </ul>
+                </div>
+
+                <div id="withdrawalStatus" class="withdrawal-status" style="display: none;">
+                    <i id="statusIcon" class="fas fa-info-circle"></i>
+                    <p id="statusMessage">Withdrawal request is being processed...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="withdrawal.js"></script>
+    <script src="sidebar.js"></script>
+</body>
+
+</html>

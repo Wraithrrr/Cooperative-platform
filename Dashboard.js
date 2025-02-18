@@ -1,213 +1,160 @@
-// Loan Application Form
-document.getElementById('loanForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    // Load sidebar
+    fetch('sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar-container').innerHTML = data;
+        });
 
-    const loanAmount = document.getElementById('loanAmount').value;
-    const loanPurpose = document.getElementById('loanPurpose').value;
-    const repaymentPeriod = document.getElementById('repaymentPeriod').value;
+    // Initialize Chart.js
+    const ctx = document.getElementById('dashboardChart').getContext('2d');
+    let chart;
 
-    if (!loanAmount || !loanPurpose || !repaymentPeriod) {
-        alert('Please fill all loan application fields');
-        return;
-    }
-
-    const loanData = {
-        amount: loanAmount,
-        purpose: loanPurpose,
-        period: repaymentPeriod
+    const createChart = (type, data, options) => {
+        if (chart) {
+            chart.destroy();
+        }
+        chart = new Chart(ctx, {
+            type: type,
+            data: data,
+            options: options
+        });
     };
 
-    console.log('Loan Application:', loanData);
-    alert('Loan application submitted successfully!');
-    this.reset();
-});
+    const financialHistoryData = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        datasets: [{
+            label: 'Financial History',
+            data: [12000, 15000, 14000, 17000, 16000, 18000],
+            backgroundColor: 'rgba(0, 77, 64, 0.2)',
+            borderColor: 'rgba(0, 77, 64, 1)',
+            borderWidth: 1
+        }]
+    };
 
-// Withdrawal Form Handling
-document.getElementById('withdrawalForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+    const creditDistributionData = {
+        labels: ['Cash', 'Facility', 'Lease'],
+        datasets: [{
+            label: 'Credit Distribution',
+            data: [50, 30, 20],
+            backgroundColor: ['rgba(0, 77, 64, 0.6)', 'rgba(0, 150, 136, 0.6)', 'rgba(0, 188, 212, 0.6)'],
+            borderColor: ['rgba(0, 77, 64, 1)', 'rgba(0, 150, 136, 1)', 'rgba(0, 188, 212, 1)'],
+            borderWidth: 1
+        }]
+    };
 
-    const amount = parseFloat(document.getElementById('withdrawAmount').value);
-    const account = document.getElementById('destinationAccount').value;
-    const pin = document.getElementById('transactionPin').value;
+    const totalContributionData = {
+        labels: ['Savings', 'Investment', 'Contribution'],
+        datasets: [{
+            label: 'Total Contribution',
+            data: [60, 40, 30],
+            backgroundColor: ['rgba(0, 77, 64, 0.6)', 'rgba(0, 150, 136, 0.6)', 'rgba(0, 188, 212, 0.6)'],
+            borderColor: ['rgba(0, 77, 64, 1)', 'rgba(0, 150, 136, 1)', 'rgba(0, 188, 212, 1)'],
+            borderWidth: 1
+        }]
+    };
 
-    if (!amount || !account || !pin) {
-        alert('Please fill all withdrawal details');
-        return;
-    }
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    };
 
-    if (pin.length !== 4) {
-        alert('PIN must be 4 digits');
-        return;
-    }
-
-    // Show confirmation modal
-    const modal = document.getElementById('confirmationModal');
-    document.getElementById('confirmAmount').textContent = `₦${amount.toLocaleString()}`;
-    document.getElementById('confirmAccount').textContent = account;
-    document.getElementById('confirmTotal').textContent = `₦${(amount + 50).toLocaleString()}`;
-    modal.style.display = 'block';
-});
-
-// Modal Handling
-document.querySelector('.close').addEventListener('click', () => {
-    document.getElementById('confirmationModal').style.display = 'none';
-});
-
-window.onclick = function (event) {
-    const modal = document.getElementById('confirmationModal');
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-}
-
-document.querySelector('.confirm-btn').addEventListener('click', function () {
-    alert('Withdrawal processed successfully!');
-    document.getElementById('confirmationModal').style.display = 'none';
-    document.getElementById('withdrawalForm').reset();
-
-    // Add to transaction history
-    const transactionList = document.querySelector('.transaction-list');
-    const newTransaction = document.createElement('li');
-    newTransaction.textContent = `₦${document.getElementById('withdrawAmount').value} - Withdrawal - ${new Date().toLocaleDateString()}`;
-    transactionList.prepend(newTransaction);
-});
-// Add transaction to history
-function addTransaction(amount, type) {
-    const transactionList = document.querySelector('.transaction-list ul');
-    const newTransaction = document.createElement('li');
-    const date = new Date().toLocaleDateString('en-GB', {
-        day: 'numeric', month: 'short', year: 'numeric'
-    });
-
-    newTransaction.innerHTML = `
-        <span class="transaction-amount">₦${parseFloat(amount).toLocaleString()}</span>
-        <span class="transaction-type">${type}</span>
-        <span class="transaction-date">${date}</span>
-    `;
-
-    transactionList.prepend(newTransaction);
-}
-
-// Update the confirmation button click handler
-document.querySelector('.confirm-btn').addEventListener('click', function () {
-    // ... existing code ...
-
-    // Add to transaction history
-    addTransaction(document.getElementById('withdrawAmount').value, 'Withdrawal');
-});
-
-// Load Sidebar Dynamically
-fetch("sidebar.html")
-    .then(response => response.text())
-    .then(data => document.getElementById("sidebar-container").innerHTML = data);
-
-const ctx = document.getElementById('dashboardChart').getContext('2d');
-let chart;
-
-function loadFinancialHistory() {
-    return new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
-            datasets: [{
-                label: 'Credit Repayments (₦)',
-                data: [50000, 60000, 45000, 70000, 65000, 80000, 90000, 75000, 85000, 95000],
-                borderColor: 'blue',
-                backgroundColor: 'rgba(0, 0, 255, 0.1)',
-                borderWidth: 2,
-                fill: true
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false
+    const graphTypeSelect = document.getElementById('graphType');
+    graphTypeSelect.addEventListener('change', (e) => {
+        const selectedGraph = e.target.value;
+        if (selectedGraph === 'financialHistory') {
+            createChart('line', financialHistoryData, options);
+        } else if (selectedGraph === 'creditDistribution') {
+            createChart('pie', creditDistributionData, options);
+        } else if (selectedGraph === 'totalContribution') {
+            createChart('doughnut', totalContributionData, options);
         }
     });
-}
 
-function loadCreditDistribution() {
-    return new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["Business", "Education", "Emergency", "Home Improvement"],
-            datasets: [{
-                data: [40, 30, 20, 10],
-                backgroundColor: ["#FF5733", "#33FF57", "#5733FF", "#FF33A1"]
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false
+    // Initialize with the default graph
+    createChart('line', financialHistoryData, options);
+
+    // Handle withdrawal form submission
+    const withdrawalForm = document.getElementById('withdrawalForm');
+    withdrawalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const withdrawAmount = document.getElementById('withdrawAmount').value;
+        const destinationAccount = document.getElementById('destinationAccount').value;
+        const transactionPin = document.getElementById('transactionPin').value;
+
+        const withdrawalRequest = {
+            withdrawAmount,
+            destinationAccount,
+            transactionPin
+        };
+
+        // Show the status bar
+        const withdrawalStatus = document.getElementById('withdrawalStatus');
+        withdrawalStatus.style.display = 'block';
+        withdrawalStatus.innerHTML = '<p>Processing your withdrawal request...</p>';
+
+        // Send the withdrawal request to the server (or process it as needed)
+        fetch('fund_management.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(withdrawalRequest)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    withdrawalStatus.innerHTML = '<p>Withdrawal request processed successfully.</p>';
+                } else {
+                    withdrawalStatus.innerHTML = '<p>Failed to process withdrawal request.</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                withdrawalStatus.innerHTML = '<p>An error occurred while processing the withdrawal request.</p>';
+            });
+    });
+
+    // Handle loan form submission
+    const loanForm = document.getElementById('loanForm');
+    loanForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const loanPurpose = document.getElementById('loanPurpose').value;
+
+        if (loanPurpose === 'cash') {
+            window.location.href = 'cash_loan.html';
+        } else if (loanPurpose === 'facility') {
+            window.location.href = 'facility.html';
+        } else if (loanPurpose === 'lease') {
+            window.location.href = 'lease.html';
         }
     });
-}
 
-function loadTotalContribution() {
-    return new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ["IT", "HR", "Finance", "Marketing"],
-            datasets: [{
-                label: 'Total Contribution (₦)',
-                data: [200000, 150000, 300000, 250000],
-                backgroundColor: ["#FF5733", "#33FF57", "#5733FF", "#FF33A1"],
-                borderColor: ["#FF5733", "#33FF57", "#5733FF", "#FF33A1"],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false
-        }
-    });
-}
+    // Download CSV functionality
+    window.downloadCSV = function () {
+        const rows = document.querySelectorAll('#financial-summary-body tr');
+        let csvContent = "data:text/csv;charset=utf-8,";
+        csvContent += "Date,Time,Amount,Type,Purpose\n";
 
-function updateChart() {
-    if (chart) {
-        chart.destroy();
-    }
-    const selectedGraph = document.getElementById("graphType").value;
-    if (selectedGraph === "financialHistory") {
-        chart = loadFinancialHistory();
-    } else if (selectedGraph === "creditDistribution") {
-        chart = loadCreditDistribution();
-    } else {
-        chart = loadTotalContribution();
-    }
-}
+        rows.forEach(row => {
+            const cols = row.querySelectorAll('td');
+            const rowData = Array.from(cols).map(col => col.innerText).join(",");
+            csvContent += rowData + "\n";
+        });
 
-document.getElementById("graphType").addEventListener("change", updateChart);
-
-window.onload = function () {
-    chart = loadFinancialHistory();
-};
-
-// Toggle balance visibility
-document.getElementById("toggleBalance").addEventListener("click", function () {
-    const balanceAmount = document.getElementById("balanceAmount");
-    if (balanceAmount.style.display === "none") {
-        balanceAmount.style.display = "block";
-        this.classList.remove("fa-eye-slash");
-        this.classList.add("fa-eye");
-    } else {
-        balanceAmount.style.display = "none";
-        this.classList.remove("fa-eye");
-        this.classList.add("fa-eye-slash");
-    }
-});
-
-// Handle withdrawal form submission
-document.getElementById('withdrawalForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const withdrawAmount = document.getElementById('withdrawAmount').value;
-    const maxWithdrawAmount = 1650000; // 60% of total balance
-    if (withdrawAmount > maxWithdrawAmount) {
-        alert('You can only request up to 60% of your total balance.');
-        return;
-    }
-    document.getElementById('withdrawalStatus').style.display = 'block';
-    setTimeout(() => {
-        alert('Withdrawal request approved');
-        document.getElementById('withdrawalStatus').style.display = 'none';
-    }, 3000); // Simulate approval delay
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "account_history.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 });

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnership (Musharakah) - Benevolence Cooperative</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="partnership.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div id="sidebar-container"></div>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Partnership Investment (Musharakah)</h1>
+                <div class="user-profile">
+                    <span>Farouk Mahmoud</span>
+                    <div class="avatar">FM</div>
+                </div>
+            </div>
+
+            <div class="partnership-container">
+                <div class="info-section">
+                    <div class="description-card">
+                        <h2><i class="fas fa-handshake"></i> What is Musharakah?</h2>
+                        <p>Musharakah is a joint investment partnership where both BCS and members contribute capital towards a business venture or asset acquisition. This partnership model ensures fair profit sharing and risk distribution.</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-coins"></i>
+                            <h3>Profit Sharing</h3>
+                            <p>Profits are distributed based on pre-agreed ratios between BCS and member.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Loss Distribution</h3>
+                            <p>Losses are shared proportionally according to capital contribution.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-home"></i>
+                            <h3>Ownership Transfer</h3>
+                            <p>Gradual transfer of ownership to the member over the partnership period.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-file-contract"></i>
+                            <h3>Transparent Terms</h3>
+                            <p>Clear documentation of partnership terms and conditions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-section">
+                    <h2>Apply for Partnership</h2>
+                    <form id="partnershipForm">
+                        <div class="form-group">
+                            <label>Investment Amount (₦)</label>
+                            <input type="number" id="investmentAmount" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Contribution (%)</label>
+                            <input type="number" id="memberContribution" min="1" max="90" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Investment Duration (months)</label>
+                            <input type="number" id="duration" min="6" max="60" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Business Type</label>
+                            <select id="businessType" required>
+                                <option value="">Select Business Type</option>
+                                <option value="retail">Retail Business</option>
+                                <option value="property">Property Investment</option>
+                                <option value="agriculture">Agricultural Project</option>
+                                <option value="transport">Transportation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Business Plan</label>
+                            <textarea id="businessPlan" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Submit Application
+                        </button>
+                    </form>
+                </div>
+
+                <div class="calculator-section">
+                    <h2>Partnership Calculator</h2>
+                    <div id="calculationResults">
+                        <div class="calc-item">
+                            <span>BCS Contribution:</span>
+                            <span id="bcsContribution">₦0</span>
+                        </div>
+                        <div class="calc-item">
+                            <span>Monthly Payment:</span>
+                            <span id="monthlyPayment">₦0</span>
+                        </div>
+                        <div class="calc-item">
+                            <span>Profit Share Ratio:</span>
+                            <span id="profitRatio">0:0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="partnership.js"></script>
+    <script src="sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Benevolence Cooperative</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="admin_dashboard.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div id="sidebar-container"></div>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Administrative Dashboard</h1>
+                <div class="admin-controls">
+                    <button class="btn report-btn"><i class="fas fa-file-export"></i> Generate Report</button>
+                    <div class="notification-badge">3</div>
+                </div>
+            </div>
+
+            <!-- Key Metrics Section -->
+            <div class="metrics-grid">
+                <div class="metric-card total-members">
+                    <i class="fas fa-users"></i>
+                    <div class="metric-info">
+                        <h3>Total Members</h3>
+                        <p>2,450</p>
+                        <span class="metric-trend positive">+4.2%</span>
+                    </div>
+                </div>
+
+                <div class="metric-card active-loans">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <div class="metric-info">
+                        <h3>Active Credits</h3>
+                        <p>₦185,000,000</p>
+                        <span class="metric-trend negative">-1.8%</span>
+                    </div>
+                </div>
+
+                <div class="metric-card total-funds">
+                    <i class="fas fa-piggy-bank"></i>
+                    <div class="metric-info">
+                        <h3>Total Funds</h3>
+                        <p>₦850,000,000</p>
+                        <span class="metric-trend positive">+7.5%</span>
+                    </div>
+                </div>
+
+                <div class="metric-card pending-requests">
+                    <i class="fas fa-inbox"></i>
+                    <div class="metric-info">
+                        <h3>Pending Requests</h3>
+                        <p>47</p>
+                        <span class="metric-alert">Require Action</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Overview Section -->
+            <div class="analysis-section">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Financial Overview</h3>
+                        <div class="chart-controls">
+                            <select id="chartType">
+                                <option value="line">Line Chart</option>
+                                <option value="bar">Bar Chart</option>
+                                <option value="pie">Pie Chart</option>
+                            </select>
+                            <select id="timeRange">
+                                <option value="7d">7 Days</option>
+                                <option value="30d">30 Days</option>
+                                <option value="1y">1 Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="financialChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <h4>Credits Distribution</h4>
+                        <div class="progress-container">
+                            <div class="progress-label">Cash Credits <span>65%</span></div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-label">Facility Credits <span>25%</span></div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 25%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-label">Lease Agreements <span>10%</span></div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 10%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card member-demographics">
+                        <h4>Member Demographics</h4>
+                        <canvas id="demographicChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Salary Contributions Section -->
+            <div class="contributions-section">
+                <div class="contributions-overview">
+                    <h3><i class="fas fa-hand-holding-usd"></i> Salary Contributions</h3>
+                    <div class="contributions-header">
+                        <div class="total-contributions">
+                            <span>This Month</span>
+                            <p>₦24,500,000</p>
+                            <span class="positive">+12% vs last month</span>
+                        </div>
+                        <button class="btn export-btn"><i class="fas fa-file-csv"></i> Export Report</button>
+                    </div>
+                </div>
+
+                <div class="contributions-content">
+                    <div class="contributions-chart">
+                        <canvas id="contributionsChart"></canvas>
+                    </div>
+
+                    <div class="contributions-breakdown">
+                        <h4>Top Contributions</h4>
+                        <table class="contributions-table">
+                            <thead>
+                                <tr>
+                                    <th>Member</th>
+                                    <th>Department</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Rows will be populated dynamically -->
+                            </tbody>
+                        </table>
+                        <button class="view-all-btn">View All Contributions →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transaction & Management Section -->
+            <div class="management-section">
+                <div class="recent-transactions">
+                    <h3>Recent Transactions</h3>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Member</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table rows would be dynamically populated -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pending-actions">
+                    <h3>Pending Approvals</h3>
+                    <div class="approval-list">
+                        <!-- Approval items would be dynamically populated -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin_dashboard.js"></script>
+    <script src="sidebar.js"></script>
+</body>
+
+</html>
