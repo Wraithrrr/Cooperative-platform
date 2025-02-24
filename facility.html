@@ -4,116 +4,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facility Credit Application</title>
-    <!-- Font Awesome for icons -->
+    <title>Facility Credit - Benevolence Cooperative</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="loan_management.css">
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="facility.css">
 </head>
 
 <body>
-    <div class="sidebar" id="sidebar-container"></div>
-
     <div class="dashboard-container">
-        <!-- Main content area -->
+        <div id="sidebar-container"></div>
+
         <main class="main-content">
-            <header class="header">
+            <div class="header">
                 <div class="logo-section">
-                    <!-- Replace "Nitda logo.png" with the actual path to the NITDA logo -->
                     <img src="Nitda logo.png" alt="NITDA Logo" class="logo">
                     <h1>Facility Credit Application</h1>
                 </div>
-            </header>
+                <div class="user-profile">
+                    <span>Farouk Mahmoud</span>
+                    <div class="avatar">FM</div>
+                </div>
+            </div>
 
-            <div class="loan-container">
-                <!-- Form header with gradient background -->
-                <div class="form-header">
-                    <h2>Request for Facility Credit</h2>
-                    <p>
-                        Please fill out the form below and provide your guarantor details.
-                        Once submitted, the status of your application will be displayed below.
-                    </p>
+            <div class="partnership-container">
+                <div class="info-section">
+                    <div class="description-card">
+                        <h2><i class="fas fa-building"></i> Facility Credit</h2>
+                        <p>The facility credit offers members access to substantial financing for business expansion or
+                            major purchases, with flexible repayment terms and competitive rates.</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Growth Financing</h3>
+                            <p>Support for business expansion and capital investment</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-percentage"></i>
+                            <h3>Competitive Rates</h3>
+                            <p>Attractive profit rates with flexible terms</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-file-contract"></i>
+                            <h3>Clear Terms</h3>
+                            <p>Transparent agreement with no hidden charges</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Asset Security</h3>
+                            <p>Collateral-based financing options available</p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Agreement Section -->
-                <div class="agreement-section">
-                    <p>
-                        Please read the
-                        <a href="BCS_Credit_Policy_Agreement_Framework.pdf" download>BCS Credit Policy Agreement
-                            Framework</a>
-                        carefully before applying.
-                    </p>
-                    <div class="agreement-checkbox">
-                        <input type="checkbox" id="agreementCheckbox" required>
-                        <label for="agreementCheckbox">I have read and agree to the terms.</label>
-                    </div>
-                </div>
-
-                <!-- Facility credit application form -->
-                <form id="facilityForm" class="loan-form">
-                    <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="facilityAmount">Facility Amount</label>
-                        <input type="number" id="facilityAmount" name="facilityAmount"
-                            placeholder="Enter facility amount" required>
-                    </div>
-                    <!-- Guarantor details -->
-                    <div class="form-group">
-                        <label for="guarantorName">Guarantor Name</label>
-                        <input type="text" id="guarantorName" name="guarantorName" placeholder="Enter guarantor's name"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <label for="guarantorEmail">Guarantor Email</label>
-                        <input type="email" id="guarantorEmail" name="guarantorEmail"
-                            placeholder="Enter guarantor's email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="guarantorContact">Guarantor Contact</label>
-                        <input type="tel" id="guarantorContact" name="guarantorContact"
-                            placeholder="Enter guarantor's contact number" required>
-                    </div>
-                    <!-- Account details -->
-                    <div class="form-group">
-                        <label for="accountNumber">Account Number</label>
-                        <input type="text" id="accountNumber" name="accountNumber" placeholder="Enter account number"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bankName">Bank Name</label>
-                        <input type="text" id="bankName" name="bankName" placeholder="Enter bank name" required>
-                    </div>
-                    <!-- Invoice upload -->
-                    <div class="form-group">
-                        <label for="invoiceUpload">Upload Invoice</label>
-                        <input type="file" id="invoiceUpload" name="invoiceUpload" accept=".pdf,.jpg,.jpeg,.png"
-                            required>
-                    </div>
-                    <button type="submit" class="btn-submit">Submit Application</button>
-                </form>
-
-                <!-- Submission status area (hidden by default) -->
-                <div id="submissionStatus" class="submission-status" style="display: none;">
-                    <!-- The status message will be inserted here by JavaScript -->
+                <div class="application-section">
+                    <h2>Facility Application</h2>
+                    <form id="facilityForm">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Facility Amount (₦)</label>
+                            <input type="number" id="facilityAmount" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Guarantor Name</label>
+                            <input type="text" id="guarantorName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Guarantor Employee ID</label>
+                            <input type="text" id="guarantorEmployeeID" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Invoice Upload</label>
+                            <input type="file" id="invoiceUpload" accept=".pdf,.jpg,.jpeg,.png" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Repayment Period (months)</label>
+                            <select id="repaymentPeriod" required>
+                                <option value="">Select Repayment Period</option>
+                                <option value="1">1 month</option>
+                                <option value="2">2 months</option>
+                                <option value="3">3 months</option>
+                                <option value="4">4 months</option>
+                                <option value="5">5 months</option>
+                                <option value="6">6 months</option>
+                                <option value="7">7 months</option>
+                                <option value="8">8 months</option>
+                                <option value="9">9 months</option>
+                                <option value="10">10 months</option>
+                            </select>
+                        </div>
+                        <div class="agreement-section">
+                            <p>Please read the <a href="BCS_Credit_Policy_Agreement_Framework.pdf" download>BCS Credit
+                                    Policy Agreement Framework</a> carefully before applying.</p>
+                            <div class="agreement-checkbox">
+                                <input type="checkbox" id="agreementCheckbox" required>
+                                <label for="agreementCheckbox">I agree to the terms and conditions</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Submit Application
+                        </button>
+                    </form>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Link to external JavaScript files -->
     <script src="sidebar.js"></script>
     <script src="facility.js"></script>
 </body>

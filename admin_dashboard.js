@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Chart Initialization
     const financialCtx = document.getElementById('financialChart').getContext('2d');
     const demographicCtx = document.getElementById('demographicChart').getContext('2d');
+    const departmentCtx = document.getElementById('departmentChart').getContext('2d');
 
     // Financial Chart Configuration
     let financialChart = new Chart(financialCtx, {
@@ -9,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data: {
             labels: generateTimeLabels('30d'),
             datasets: [{
-                label: 'Total Assets (₦)',
+                label: 'Total Contributions (₦)',
                 data: generateFinancialData('30d'),
                 borderColor: '#004d40',
                 backgroundColor: 'rgba(0, 77, 64, 0.1)',
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 fill: true
             }]
         },
-        options: financialChartOptions('Line Chart')
+        options: financialChartOptions('Contribution Overview')
     });
 
     // Demographic Chart Configuration
@@ -44,25 +45,86 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Department Credit Distribution Chart Configuration
+    let departmentChart = new Chart(departmentCtx, {
+        type: 'bar',
+        data: {
+            labels: ['HR', 'Finance', 'IT', 'Marketing'],
+            datasets: [{
+                label: 'Credit Distribution (₦)',
+                data: [5000000, 7000000, 3000000, 4000000],
+                backgroundColor: [
+                    '#004d40',
+                    '#00796b',
+                    '#009688',
+                    '#b2dfdb'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'bottom' },
+                tooltip: { enabled: true }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function (value) {
+                            return `₦${value.toLocaleString()}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
     // Chart Type Switcher
     document.getElementById('chartType').addEventListener('change', function () {
         financialChart.destroy();
+        let chartTitle = '';
+        let chartData = [];
+        let chartLabel = '';
+        let chartBackgroundColor = '';
+
+        switch (this.value) {
+            case 'line':
+                chartTitle = 'Contribution Overview';
+                chartLabel = 'Total Contributions (₦)';
+                chartData = generateFinancialData(document.getElementById('timeRange').value);
+                chartBackgroundColor = 'rgba(0, 77, 64, 0.1)';
+                break;
+            case 'bar':
+                chartTitle = 'Contribution Overview';
+                chartLabel = 'Total Contributions (₦)';
+                chartData = generateFinancialData(document.getElementById('timeRange').value);
+                chartBackgroundColor = 'rgba(0, 77, 64, 0.1)';
+                break;
+            case 'pie':
+                chartTitle = 'Contribution Distribution';
+                chartLabel = 'Total Contributions (₦)';
+                chartData = generateFinancialData(document.getElementById('timeRange').value);
+                chartBackgroundColor = [
+                    '#004d40', '#00796b', '#009688', '#b2dfdb'
+                ];
+                break;
+        }
+
         financialChart = new Chart(financialCtx, {
             type: this.value,
             data: {
                 labels: generateTimeLabels(document.getElementById('timeRange').value),
                 datasets: [{
-                    label: 'Total Assets (₦)',
-                    data: generateFinancialData(document.getElementById('timeRange').value),
+                    label: chartLabel,
+                    data: chartData,
                     borderColor: '#004d40',
-                    backgroundColor: this.value === 'pie' ? [
-                        '#004d40', '#00796b', '#009688', '#b2dfdb'
-                    ] : 'rgba(0, 77, 64, 0.1)',
+                    backgroundColor: chartBackgroundColor,
                     tension: 0.4,
                     fill: this.value !== 'pie'
                 }]
             },
-            options: financialChartOptions(`${this.value.charAt(0).toUpperCase() + this.value.slice(1)} Chart`)
+            options: financialChartOptions(chartTitle)
         });
     });
 

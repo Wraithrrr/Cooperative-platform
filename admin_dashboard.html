@@ -67,12 +67,12 @@
             <div class="analysis-section">
                 <div class="chart-container">
                     <div class="chart-header">
-                        <h3>Financial Overview</h3>
+                        <h3 id="chartTitle">Contribution Overview</h3>
                         <div class="chart-controls">
                             <select id="chartType">
-                                <option value="line">Line Chart</option>
-                                <option value="bar">Bar Chart</option>
-                                <option value="pie">Pie Chart</option>
+                                <option value="line">Contribution</option>
+                                <option value="pie">Loan Distribution</option>
+                                <option value="bar">BCS</option>
                             </select>
                             <select id="timeRange">
                                 <option value="7d">7 Days</option>
@@ -112,6 +112,11 @@
                     <div class="stat-card member-demographics">
                         <h4>Member Demographics</h4>
                         <canvas id="demographicChart"></canvas>
+                    </div>
+
+                    <div class="stat-card department-distribution">
+                        <h4>Department Credit Distribution</h4>
+                        <canvas id="departmentChart"></canvas>
                     </div>
                 </div>
             </div>

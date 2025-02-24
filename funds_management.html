@@ -7,7 +7,7 @@
     <title>Funds Management</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="sidebar.css">
-    <link rel="stylesheet" href="Dashboard.css">
+    <link rel="stylesheet" href="funds_management.css">
 </head>
 
 <body>
@@ -23,41 +23,48 @@
             <div class="dashboard-cards">
                 <div class="card">
                     <h3><i class="fas fa-wallet"></i> Withdrawal Requests</h3>
-                    <table id="withdrawalRequestsTable">
-                        <thead>
-                            <tr>
-                                <th>Employee ID</th>
-                                <th>Name</th>
-                                <th>Requested Amount</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Example row -->
-                            <tr>
-                                <td>NITDA-001</td>
-                                <td>John Doe</td>
-                                <td>₦990,000</td>
-                                <td>
-                                    <button class="approve-btn">Approve</button>
-                                    <button class="decline-btn">Decline</button>
-                                </td>
-                            </tr>
-                            <!-- More rows will be dynamically added here -->
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table id="withdrawalRequestsTable">
+                            <thead>
+                                <tr>
+                                    <th>Employee ID</th>
+                                    <th>Name</th>
+                                    <th>Requested Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Example row -->
+                                <tr>
+                                    <td>NITDA-001</td>
+                                    <td>John Doe</td>
+                                    <td>₦990,000</td>
+                                    <td>
+                                        <button class="approve-btn">Approve</button>
+                                        <button class="decline-btn">Decline</button>
+                                    </td>
+                                </tr>
+                                <!-- More rows will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <script src="Dashboard.js"></script>
+    <script src="funds_management.js"></script>
     <script src="sidebar.js"></script>
     <script>
         // Example data for demonstration
         const withdrawalRequests = [
             { employeeId: 'NITDA-002', name: 'Jane Smith', amount: '₦660,000' },
-            { employeeId: 'NITDA-003', name: 'Michael Johnson', amount: '₦780,000' }
+            { employeeId: 'NITDA-003', name: 'Michael Johnson', amount: '₦780,000' },
+            { employeeId: 'NITDA-004', name: 'Alice Brown', amount: '₦500,000' },
+            { employeeId: 'NITDA-005', name: 'Robert White', amount: '₦1,200,000' },
+            { employeeId: 'NITDA-006', name: 'Emily Davis', amount: '₦900,000' },
+            { employeeId: 'NITDA-007', name: 'David Wilson', amount: '₦750,000' },
+            { employeeId: 'NITDA-008', name: 'Sarah Miller', amount: '₦1,100,000' }
         ];
 
         // Load withdrawal requests into the table

@@ -134,6 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'facility.html';
         } else if (loanPurpose === 'lease') {
             window.location.href = 'lease.html';
+        } else if (loanPurpose === 'partnership') {
+            window.location.href = 'partnership.html';
         }
     });
 
@@ -157,4 +159,18 @@ document.addEventListener('DOMContentLoaded', () => {
         link.click();
         document.body.removeChild(link);
     };
+
+    const notificationBell = document.getElementById('notificationBell');
+    const notificationTray = document.getElementById('notificationTray');
+
+    notificationBell.addEventListener('click', () => {
+        notificationTray.style.display = notificationTray.style.display === 'none' || notificationTray.style.display === '' ? 'block' : 'none';
+    });
+
+    // Close the notification tray when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!notificationBell.contains(event.target) && !notificationTray.contains(event.target)) {
+            notificationTray.style.display = 'none';
+        }
+    });
 });

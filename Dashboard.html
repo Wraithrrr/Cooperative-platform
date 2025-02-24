@@ -7,6 +7,7 @@
     <title>Benevolence Cooperative Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="sidebar.css">
+   
     <link rel="stylesheet" href="Dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -20,6 +21,17 @@
             <div class="header">
                 <h1>Welcome to Your Benevolence Cooperative Dashboard</h1>
                 <div class="user-profile">
+                    <div class="notification-bell">
+                        <i class="fas fa-bell" id="notificationBell"></i>
+                        <span class="notification-count" id="notificationCount">3</span>
+                        <div class="notification-tray" id="notificationTray">
+                            <ul>
+                                <li>New credit application received</li>
+                                <li>Monthly contribution added</li>
+                                <li>Withdrawal request approved</li>
+                            </ul>
+                        </div>
+                    </div>
                     <span>Farouk Mahmoud</span>
                     <div class="avatar">FM</div>
                 </div>
@@ -123,7 +135,6 @@
                             <span>Electricity</span>
                         </button>
                         <button class="service-btn">
-                            <i class="fas fa-tv"></i>
                             <span>DSTV</span>
                         </button>
                         <button class="service-btn">

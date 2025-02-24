@@ -97,7 +97,8 @@ body {
 }
 
 .chart-container {
-    flex: 2;
+    flex: 3;
+    /* Increase the size of the Contribution Overview chart */
     background: white;
     padding: 1.5rem;
     border-radius: 8px;
@@ -113,15 +114,40 @@ body {
     margin-bottom: 1rem;
 }
 
+.chart-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
 .chart-controls select {
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.chart-controls select:focus {
+    outline: none;
+    border-color: #004d40;
 }
 
 .chart-wrapper {
     flex: 1;
     position: relative;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+    /* Increase the height of the financial chart */
+    max-height: 900px;
+    /* Set a maximum height for the graph */
 }
 
 .chart-wrapper canvas {
@@ -131,6 +157,7 @@ body {
 
 .quick-stats {
     flex: 1;
+    /* Reduce the size of the quick stats section */
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -138,7 +165,8 @@ body {
 
 .stat-card {
     background: white;
-    padding: 1.5rem;
+    padding: 1rem;
+    /* Reduce padding */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -210,6 +238,10 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0 2rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .total-contributions p {
@@ -222,19 +254,32 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .contributions-chart {
     height: 350px;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 600px;
+    /* Set a maximum height for the graph */
 }
 
 .contributions-table {
     width: 100%;
     margin-top: 1rem;
-}
-
-.contributions-table th {
-    background: #f5f5f5;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .view-all-btn {
@@ -245,20 +290,11 @@ body {
     margin-top: 1rem;
     cursor: pointer;
     float: right;
+    font-weight: bold;
 }
 
 .view-all-btn:hover {
     text-decoration: underline;
-}
-
-@media (max-width: 1200px) {
-    .contributions-content {
-        grid-template-columns: 1fr;
-    }
-
-    .contributions-chart {
-        height: 300px;
-    }
 }
 
 /* Approve and Decline Buttons */
@@ -291,6 +327,16 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1200px) {
+    .contributions-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contributions-chart {
+        height: 300px;
+    }
+}
+
+@media (max-width: 1200px) {
     .analysis-section {
         grid-template-columns: 1fr;
     }
@@ -315,4 +361,24 @@ body {
         flex-direction: column;
         gap: 0.5rem;
     }
+}
+
+.member-demographics {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    /* Reduce the height */
+    max-height: 400px;
+    /* Set a maximum height */
+}
+
+.department-distribution {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    /* Set the height for the new chart */
+    max-height: 400px;
+    /* Set a maximum height */
 }
