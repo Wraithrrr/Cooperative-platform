@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     creditTypeButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            
+
             if (!agreementCheckbox.checked) {
                 alert('Please confirm that you have read and agree to the BCS Credit Policy Agreement Framework.');
                 return;
@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = 'facility.html';
             } else if (creditType === 'lease') {
                 window.location.href = 'lease.html';
+            } else if (creditType === 'partnership') {
+                window.location.href = 'partnership.html';
             }
         });
     });

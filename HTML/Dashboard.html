@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benevolence Cooperative Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style/sidebar.css">
+    <link rel="stylesheet" href="style/Dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar will be dynamically loaded here -->
+        <div id="sidebar-container"></div>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Welcome to Your Benevolence Cooperative Dashboard</h1>
+                <div class="user-profile">
+                    <div class="notification-bell">
+                        <i class="fas fa-bell" id="notificationBell"></i>
+                        <span class="notification-count" id="notificationCount">3</span>
+                        <div class="notification-tray" id="notificationTray">
+                            <ul>
+                                <li>New credit application received</li>
+                                <li>Monthly contribution added</li>
+                                <li>Withdrawal request approved</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span>Farouk Mahmoud</span>
+                    <div class="avatar">FM</div>
+                </div>
+            </div>
+
+            <div class="dashboard-cards">
+                <div class="card fund-management">
+                    <h3><i class="fas fa-wallet"></i> Funds Management</h3>
+                    <div class="finance-actions">
+                        <div class="balance-summary">
+                            <h4>Available Balance <i class="fas fa-eye" id="toggleBalance"></i></h4>
+                            <div class="balance-amount" id="balanceAmount">₦2,750,000</div>
+                        </div>
+                        <div class="balance-breakdown">
+                            <p>Savings: <strong>₦1,650,000</strong> (60%)</p>
+                            <p>Investment: <strong>₦1,100,000</strong> (40%)</p>
+                        </div>
+                        <form id="withdrawalForm" class="withdrawal-form">
+                            <div class="form-group">
+                                <label>Withdrawal Amount (₦)</label>
+                                <input type="number" id="withdrawAmount" max="1650000" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Destination Account</label>
+                                <select id="destinationAccount" required>
+                                    <option value="">Select Account</option>
+                                    <option>First Bank - ●●●● 2345</option>
+                                    <option>GT Bank - ●●●● 6789</option>
+                                    <option>Zenith Bank - ●●●● 9012</option>
+                                </select>
+                            </div>
+                            <div class="form-group security-pin">
+                                <label>Transaction PIN</label>
+                                <input type="password" id="transactionPin" maxlength="4" pattern="\d{4}" required>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-coins"></i> Process Withdrawal
+                            </button>
+                        </form>
+                        <div id="withdrawalStatus" class="withdrawal-status" style="display: none;">
+                            <p>Withdrawal request is being processed...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card credit-status">
+                    <h3><i class="fas fa-file-invoice-dollar"></i> Current Credit</h3>
+                    <div class="loan-status">
+                        <p>Active Credits: <strong>2</strong></p>
+                        <p>Total Outstanding: <strong>₦1,250,000</strong></p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%"></div>
+                        </div>
+                        <p>Repayment Progress: 65%</p>
+                    </div>
+                </div>
+
+                <div class="card apply-credit">
+                    <h3><i class="fas fa-hand-holding-usd"></i> Apply for Credit</h3>
+                    <form id="loanForm">
+                        <div class="form-group">
+                            <label>Credit Amount (₦)</label>
+                            <input type="number" id="loanAmount" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Credit Type</label>
+                            <select id="loanPurpose" required>
+                                <option value="">Select Type</option>
+                                <option value="cash">Cash</option>
+                                <option value="facility">Facility</option>
+                                <option value="lease">Lease</option>
+                                <option value="partnership">Partnership</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Repayment Period (months)</label>
+                            <input type="number" id="repaymentPeriod" min="1" max="10" required>
+                        </div>
+                        <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Apply Now</button>
+                    </form>
+                </div>
+
+                <!-- Quick Services Card -->
+                <div class="card utility-services">
+                    <h3><i class="fas fa-bolt"></i> Quick Services</h3>
+                    <div class="services-grid">
+                        <button class="service-btn">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Airtime</span>
+                        </button>
+                        <button class="service-btn">
+                            <i class="fas fa-database"></i>
+                            <span>Data Plans</span>
+                        </button>
+                        <button class="service-btn">
+                            <i class="fas fa-tint"></i>
+                            <span>Water Bill</span>
+                        </button>
+                        <button class="service-btn">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Electricity</span>
+                        </button>
+                        <button class="service-btn">
+                            <span>DSTV</span>
+                        </button>
+                        <button class="service-btn">
+                            <i class="fas fa-satellite-dish"></i>
+                            <span>GO TV</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card financial-analysis">
+                    <h3><i class="fas fa-chart-line"></i> Financial Analysis</h3>
+                    <label for="graphType">Select Graph:</label>
+                    <select id="graphType">
+                        <option value="financialHistory">Financial History</option>
+                        <option value="creditDistribution">Loan Distribution</option>
+                        <option value="totalContribution">Total Contribution</option>
+                    </select>
+                    <canvas id="dashboardChart"></canvas>
+                </div>
+
+                <div class="card financial-summary-card">
+                    <h3><i class="fas fa-table"></i> Financial Summary</h3>
+                    <button class="download-btn" onclick="downloadCSV()"><i class="fas fa-download"></i> Download
+                        Account History</button>
+                    <table class="financial-summary-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Amount</th>
+                                <th>Type</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody id="financial-summary-body">
+                            <tr>
+                                <td>2025-01-15</td>
+                                <td>10:30 AM</td>
+                                <td>₦5000</td>
+                                <td>Added</td>
+                                <td>Monthly Contribution</td>
+                            </tr>
+                            <tr>
+                                <td>2025-01-20</td>
+                                <td>02:45 PM</td>
+                                <td>₦2000</td>
+                                <td>Removed</td>
+                                <td>Credit Repayment</td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script/Dashboard.js"></script>
+    <script src="script/sidebar.js"></script>
+</body>
+
+</html>

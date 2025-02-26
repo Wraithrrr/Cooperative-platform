@@ -4,107 +4,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cash Credit Application</title>
-  <!-- Font Awesome for icons -->
+  <title>Cash Credit (Qard Hasan) - Benevolence Cooperative</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <!-- Link to external CSS file -->
-  <link rel="stylesheet" href="loan_management.css">
+  <link rel="stylesheet" href="global.css">
   <link rel="stylesheet" href="cash_loan.css">
 </head>
 
-<body>
-  <div class="sidebar" id="sidebar-container"></div>
+<body class="cash-loan-body">
+  <div class="cash-loan-sidebar" id="sidebar-container"></div>
 
-  <div class="dashboard-container">
+  <div class="cash-loan-dashboard-container">
     <!-- Main content area -->
-    <main class="main-content">
-      <header class="header">
+    <main class="cash-loan-main-content">
+      <header class="cash-loan-header">
         <div class="logo-section">
           <!-- Replace "Nitda logo.png" with the actual path to the NITDA logo -->
-          <img src="Nitda logo.png" alt="NITDA Logo" class="logo">
-          <h1>Cash Credit Application</h1>
+          <!-- <img src="Nitda logo.png" alt="NITDA Logo" class="logo"> -->
+          <h1>Cash Credit (Qard Hasan)</h1>
+        </div>
+        <div class="user-profile">
+          <span>Farouk Mahmoud</span>
+          <div class="avatar">FM</div>
         </div>
       </header>
 
-      <div class="loan-container">
+      <div class="cash-loan-container">
         <!-- Form header with gradient background -->
-        <div class="form-header">
-          <h2>Request for Cash Credit</h2>
-          <p>
-            Please fill out the form below and provide your guarantor details.
-            Once submitted, the status of your application will be displayed below.
-          </p>
+        <div class="cash-loan-form-header">
+          <h2>Request for Cash Credit (Qard Hasan)</h2>
+        </div>
+
+        <div class="info-section">
+          <div class="description-card">
+            <h2><i class="fas fa-hand-holding-usd"></i> What is Qard Hasan?</h2>
+            <p>Qard Hasan is a benevolent cash credit facility where members receive financial assistance with the
+              understanding that the amount borrowed will be repaid without interest.</p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <i class="fas fa-money-bill-wave"></i>
+              <h3>Interest-Free</h3>
+              <p>Members receive financial assistance without any interest charges.</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-calendar-alt"></i>
+              <h3>Flexible Repayment</h3>
+              <p>Repayment is made within an agreed period.</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-file-invoice-dollar"></i>
+              <h3>Administrative Charge</h3>
+              <p>A fixed administrative charge may apply.</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-file-contract"></i>
+              <h3>Transparent Terms</h3>
+              <p>Clear documentation of credit terms and conditions.</p>
+            </div>
+          </div>
         </div>
 
         <!-- Agreement Section -->
         <div class="agreement-section">
           <p>
             Please read the
-            <a href="BCS_Credit_Policy_Agreement_Framework.pdf" download>BCS Credit Policy Agreement Framework</a>
+            <a href="BCS_Credit_Policy_Agreement_Framework.pdf" download>BCS Credit Policy Agreement
+              Framework</a>
             carefully before applying.
           </p>
           <div class="agreement-checkbox">
-            <input type="checkbox" id="agreementCheckbox" required>
+            <input type="checkbox" id="agreementCheckbox">
             <label for="agreementCheckbox">I have read and agree to the terms.</label>
           </div>
         </div>
 
         <!-- Cash credit application form -->
-        <form id="cashForm" class="loan-form">
-          <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-          </div>
-          <div class="form-group">
-            <label for="loanAmount">Credit Amount</label>
-            <input type="number" id="loanAmount" name="loanAmount" placeholder="Enter credit amount" required>
-          </div>
-          <!-- Guarantor details -->
-          <div class="form-group">
-            <label for="guarantorName">Guarantor Name</label>
-            <input type="text" id="guarantorName" name="guarantorName" placeholder="Enter guarantor's name" required>
-          </div>
-          <div class="form-group">
-            <label for="guarantorEmail">Guarantor Email</label>
-            <input type="email" id="guarantorEmail" name="guarantorEmail" placeholder="Enter guarantor's email"
-              required>
-          </div>
-          <div class="form-group">
-            <label for="guarantorContact">Guarantor Contact</label>
-            <input type="tel" id="guarantorContact" name="guarantorContact"
-              placeholder="Enter guarantor's contact number" required>
-          </div>
-          <!-- Account details -->
-          <div class="form-group">
-            <label for="accountNumber">Account Number</label>
-            <input type="text" id="accountNumber" name="accountNumber" placeholder="Enter account number" required>
-          </div>
-          <div class="form-group">
-            <label for="bankName">Bank Name</label>
-            <input type="text" id="bankName" name="bankName" placeholder="Enter bank name" required>
-          </div>
-          <button type="submit" class="btn-submit">Submit Application</button>
-        </form>
+        <div class="application-section">
+          <h2>Request Cash Credit</h2>
+          <form id="cashForm">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="fullName" required>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" id="phone" required>
+            </div>
+            <div class="form-group">
+              <label>Credit Amount (₦)</label>
+              <input type="number" id="loanAmount" required>
+            </div>
+            <div class="form-group">
+              <label>Guarantor Name</label>
+              <input type="text" id="guarantorName" required>
+            </div>
+            <div class="form-group">
+              <label>Guarantor Employee ID</label>
+              <input type="text" id="guarantorEmployeeID" required>
+            </div>
+            <div class="form-group">
+              <label>Account Number</label>
+              <input type="text" id="accountNumber" required>
+            </div>
+            <div class="form-group">
+              <label>Bank Name</label>
+              <input type="text" id="bankName" required>
+            </div>
+            <div class="form-group">
+              <label>Repayment Period (months)</label>
+              <select id="repaymentPeriod" required>
+                <option value="">Select Repayment Period</option>
+                <option value="1">1 month</option>
+                <option value="2">2 months</option>
+                <option value="3">3 months</option>
+                <option value="4">4 months</option>
+                <option value="5">5 months</option>
+                <option value="6">6 months</option>
+                <option value="7">7 months</option>
+                <option value="8">8 months</option>
+                <option value="9">9 months</option>
+                <option value="10">10 months</option>
+              </select>
+            </div>
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> Submit Application
+            </button>
+          </form>
+        </div>
 
-        <!-- Submission status area (hidden by default) -->
-        <div id="submissionStatus" class="submission-status" style="display: none;">
-          <!-- The status message will be inserted here by JavaScript -->
+        <div class="calculator-section">
+          <h2>Repayment Calculator</h2>
+          <div id="calculationResults">
+            <div class="calc-item">
+              <span>Total Amount:</span>
+              <span id="totalAmount">₦0</span>
+            </div>
+            <div class="calc-item">
+              <span>Monthly Payment:</span>
+              <span id="monthlyPayment">₦0</span>
+            </div>
+            <div class="calc-item">
+              <span>Repayment Period:</span>
+              <span id="repaymentPeriodCalc">0 months</span>
+            </div>
+          </div>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- Link to external JavaScript files -->
+  <script src="cash_loan.js"></script>
   <script src="sidebar.js"></script>
-  <script src="loan_management.js"></script>
 </body>
 
 </html>

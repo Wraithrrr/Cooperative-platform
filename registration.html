@@ -6,30 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NITDA Employee Registration</title>
 
-    <link rel="stylesheet" href="registration.css">
+    <link rel="stylesheet" href="register_page.css">
 </head>
 
 <body>
-    <div class="container">
-        <header class="header">
-            <img src="Nitda logo.png" alt="NITDA Logo" class="logo">
+    <div class="registration-container">
+        <header class="registration-header">
+            <img src="Nitda logo.png" alt="NITDA Logo" class="registration-logo">
             <h1>Employee Registration Portal</h1>
         </header>
 
         <form class="registration-form">
             <!-- Personal Information Section -->
-            <section class="form-section">
+            <section class="registration-form-section">
                 <h2>Personal Information</h2>
-                <div class="form-grid triple">
-                    <div class="input-group">
+                <div class="registration-form-grid triple">
+                    <div class="registration-input-group">
                         <input type="text" id="firstName" required>
                         <label for="firstName">First Name*</label>
                     </div>
-                    <div class="input-group">
+                    <div class="registration-input-group">
                         <input type="text" id="lastName" required>
                         <label for="lastName">Last Name*</label>
                     </div>
-                    <div class="input-group">
+                    <div class="registration-input-group">
                         <input type="text" id="otherName">
                         <label for="otherName">Other Name</label>
                     </div>
@@ -37,19 +37,19 @@
             </section>
 
             <!-- Official Information Section -->
-            <section class="form-section">
+            <section class="registration-form-section">
                 <h2>Official Information</h2>
-                <div class="form-grid dual">
-                    <div class="input-group">
+                <div class="registration-form-grid dual">
+                    <div class="registration-input-group">
                         <input type="email" id="nitdaEmail" required pattern=".*@nitda\.gov\.ng">
                         <label for="nitdaEmail">NITDA Email*</label>
                         <span class="hint">@nitda.gov.ng required</span>
                     </div>
-                    <div class="input-group">
+                    <div class="registration-input-group">
                         <input type="tel" id="phone" required>
                         <label for="phone">Phone Number*</label>
                     </div>
-                    <div class="input-group">
+                    <div class="registration-input-group">
                         <input type="text" id="nitdaNumber" required pattern="NITDA-\d{5}">
                         <label for="nitdaNumber">Employee Number*</label>
                         <span class="hint">Format: NITDA-12345</span>
@@ -58,25 +58,25 @@
             </section>
 
             <!-- Gender and Photo Section -->
-            <section class="form-section">
-                <div class="form-grid dual">
-                    <div class="input-group">
-                        <div class="gender-toggle">
+            <section class="registration-form-section">
+                <div class="registration-form-grid dual">
+                    <div class="registration-input-group">
+                        <div class="registration-gender-toggle">
                             <span class="section-label">Gender*</span>
-                            <div class="toggle-group">
-                                <button type="button" class="gender-option active">Male</button>
-                                <button type="button" class="gender-option">Female</button>
+                            <div class="registration-toggle-group">
+                                <button type="button" class="registration-gender-option active">Male</button>
+                                <button type="button" class="registration-gender-option">Female</button>
                             </div>
                             <input type="hidden" id="gender" name="gender" required>
                         </div>
                     </div>
 
-                    <div class="file-upload-group">
-                        <label class="upload-label">
+                    <div class="registration-file-upload-group">
+                        <label class="registration-upload-label">
                             <span class="section-label">Passport Photo*</span>
                             <input type="file" id="passportPhoto" accept="image/*" required>
-                            <div class="upload-box">
-                                <span class="upload-text">JPEG/PNG (Max 2MB)</span>
+                            <div class="registration-upload-box">
+                                <span class="registration-upload-text">JPEG/PNG (Max 2MB)</span>
                             </div>
                         </label>
                     </div>
@@ -84,18 +84,18 @@
             </section>
 
             <!-- Next of Kin Section -->
-            <section class="form-section">
+            <section class="registration-form-section">
                 <h2>Next of Kin Details</h2>
-                <div class="form-grid triple">
-                    <div class="input-group">
+                <div class="registration-form-grid triple">
+                    <div class="registration-input-group">
                         <input type="text" id="kinName" required>
                         <label for="kinName">Full Name*</label>
                     </div>
-                    <div class="input-group">
+                    <div class="registration-input-group">
                         <input type="tel" id="kinPhone" required>
                         <label for="kinPhone">Phone Number*</label>
                     </div>
-                    <div class="input-group">
+                    <div class="registration-input-group">
                         <select id="relationship" required>
                             <option value="">Relationship*</option>
                             <option>Spouse</option>
@@ -111,18 +111,18 @@
             </section>
 
             <!-- Password Section -->
-            <section class="form-section">
+            <section class="registration-form-section">
                 <h2>Account Security</h2>
-                <div class="form-grid dual">
-                    <div class="input-group">
+                <div class="registration-form-grid dual">
+                    <div class="registration-input-group">
                         <input type="password" id="password" required minlength="8">
                         <label for="password">Create Password*</label>
-                        <div class="password-strength">
-                            <div class="strength-bar"></div>
+                        <div class="registration-password-strength">
+                            <div class="registration-strength-bar"></div>
                             <span class="strength-text">Password Strength</span>
                         </div>
                     </div>
-                    <div class="input-group">
+                    <div class="registration-input-group">
                         <input type="password" id="confirmPassword" required>
                         <label for="confirmPassword">Confirm Password*</label>
                     </div>
@@ -134,7 +134,7 @@
                 <a href="login_page.html">Login Here</a>
             </div>
 
-            <button type="submit" class="submit-btn">Complete Registration</button>
+            <button type="submit" class="registration-submit-btn">Complete Registration</button>
         </form>
     </div>
 

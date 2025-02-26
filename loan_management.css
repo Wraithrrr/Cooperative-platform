@@ -1,3 +1,5 @@
+@import url('global.css');
+
 body {
   font-family: 'Segoe UI', system-ui, sans-serif;
   background-color: #f5f7fa;
@@ -51,7 +53,8 @@ body {
 .dashboard-container {
   display: flex;
   flex: 1;
-  margin-left: 250px; /* Adjust this value to match the sidebar width */
+  margin-left: 250px;
+  /* Adjust this value to match the sidebar width */
 }
 
 .main-content {
@@ -166,4 +169,26 @@ body {
 
 .status-pending {
   color: #ff9800;
+}
+
+.loan-submit-btn {
+  background: #004d40;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.loan-help {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.loan-help a {
+  color: #00796b;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.loan-help a:hover {
+  text-decoration: underline;
 }
