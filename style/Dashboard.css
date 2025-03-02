@@ -1,0 +1,640 @@
+/* Global Reset & Fonts */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    min-height: 100vh;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: #004d40;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    z-index: 100;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.sidebar .logo {
+    height: 50px;
+}
+
+.sidebar .nav-menu {
+    flex: 1;
+}
+
+.sidebar .nav-menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-menu a:hover,
+.sidebar .nav-menu a.active {
+    background-color: #00796b;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    padding: 1.5rem 2rem;
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    max-width: 1600px;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    color: #004d40;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* User Profile */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar {
+    background: #00796b;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-profile .employee-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Dashboard Cards Grid Layout */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 1.5rem;
+}
+
+/* Card Sizing and Positioning */
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    color: #004d40;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Card Positioning in Grid */
+.card.fund-management {
+    grid-column: span 4;
+    grid-row: span 2;
+}
+
+.card.credit-status {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+.card.apply-credit {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+.card.utility-services {
+    grid-column: span 8;
+    grid-row: span 1;
+}
+
+.card.financial-analysis {
+    grid-column: span 8;
+    grid-row: span 1;
+    min-height: 400px;
+}
+
+.card.financial-summary-card {
+    grid-column: span 12;
+}
+
+/* Fund Management Section */
+.fund-management {
+    text-align: left;
+}
+
+.balance-summary {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.balance-summary h4 {
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.balance-amount {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #004d40;
+    margin-bottom: 1rem;
+}
+
+.balance-breakdown {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contribution-amount {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #004d40;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #00796b;
+    box-shadow: 0 0 0 2px rgba(0, 121, 107, 0.1);
+}
+
+.submit-btn {
+    background: #00796b;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background: #004d40;
+}
+
+/* Loan Status & Progress */
+.loan-status {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+.loan-status>div {
+    margin-bottom: 1.25rem;
+}
+
+.loan-status>div:last-child {
+    margin-bottom: 0;
+}
+
+.loan-status p {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loan-status p strong {
+    font-size: 1.1rem;
+    color: #004d40;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: right;
+}
+
+.progress-bar {
+    background: #e0e0e0;
+    border-radius: 12px;
+    height: 8px;
+    margin: 0.75rem 0 1rem;
+    overflow: hidden;
+}
+
+.progress {
+    background: linear-gradient(90deg, #00796b, #004d40);
+    height: 100%;
+    border-radius: 12px;
+    transition: width 1s ease-in-out;
+}
+
+/* Quick Services */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.service-btn {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: #00796b;
+}
+
+.service-btn i {
+    font-size: 1.5rem;
+    color: #004d40;
+}
+
+.service-btn span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Financial Analysis */
+.financial-analysis {
+    display: flex;
+    flex-direction: column;
+}
+
+.financial-analysis select {
+    width: auto;
+    align-self: flex-end;
+    margin-bottom: 1rem;
+}
+
+canvas {
+    width: 100% !important;
+    height: 320px !important;
+}
+
+/* Financial Summary Table */
+.financial-summary-card {
+    overflow: hidden;
+}
+
+.download-btn {
+    background: #00796b;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.financial-summary-table {
+    width: 100%;
+    margin-top: 1rem;
+    clear: both;
+}
+
+.financial-summary-table thead th {
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem 1rem;
+}
+
+.financial-summary-table tbody td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.financial-summary-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Notification Bell */
+.notification-bell {
+    position: relative;
+    cursor: pointer;
+    margin-right: 1.25rem;
+}
+
+.notification-bell i {
+    font-size: 1.25rem;
+    color: #004d40;
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background-color: #e53935;
+    color: white;
+    border-radius: 50%;
+    padding: 1px 5px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.notification-tray {
+    position: absolute;
+    top: 35px;
+    right: -10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    width: 280px;
+    z-index: 1000;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.notification-tray ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.notification-tray li {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.notification-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.notification-content {
+    margin-bottom: 5px;
+}
+
+.notification-time {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.mark-as-read-btn {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-end;
+    font-size: 0.8rem;
+}
+
+.mark-as-read-btn:hover {
+    background-color: #004d40;
+}
+
+.notification-tray li:last-child {
+    border-bottom: none;
+}
+
+.notification-tray li:hover {
+    background-color: #f5f5f5;
+}
+
+/* Withdrawal Status */
+.withdrawal-status {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #e8f5e9;
+    border-radius: 6px;
+    border-left: 4px solid #00796b;
+    color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .dashboard-cards {
+        gap: 1rem;
+    }
+
+    .card.fund-management,
+    .card.credit-status,
+    .card.apply-credit {
+        grid-column: span 6;
+    }
+
+    .card.utility-services,
+    .card.financial-analysis {
+        grid-column: span 12;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-content {
+        padding: 1.25rem;
+    }
+
+    .card {
+        padding: 1.25rem;
+    }
+
+    .card h3 {
+        font-size: 1.1rem;
+    }
+
+    .balance-amount {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        padding: 1rem 0.5rem;
+    }
+
+    .sidebar .nav-menu a span {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+        padding: 1rem;
+    }
+
+    .header {
+        flex-wrap: wrap;
+    }
+
+    .header h1 {
+        font-size: 1.25rem;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        grid-column: span 12 !important;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 1rem 0.75rem;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .header {
+        margin-bottom: 1.5rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .balance-breakdown {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .notification-tray {
+        width: 100%;
+        right: 0;
+    }
+}
+
+/* Additional Utility Classes */
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}

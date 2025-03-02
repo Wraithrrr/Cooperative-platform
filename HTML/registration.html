@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NITDA Employee Registration</title>
+
+    <link rel="stylesheet" href="/style/register_page.css"> <!-- Corrected path to register_page.css -->
+</head>
+
+<body>
+    <div class="registration-container">
+        <header class="registration-header"> <img src="../images/benovelence_logo.png" alt="Benevolence Logo"
+                class="logo" style="max-width: 150px;">
+            <!-- Added max-width to Benevolence Logo -->
+            <h1>Employee Registration Portal</h1>
+        </header>
+
+        <form class="registration-form">
+            <!-- Personal Information Section -->
+            <section class="registration-form-section">
+                <h2>Personal Information</h2>
+                <div class="registration-form-grid triple">
+                    <div class="registration-input-group">
+                        <input type="text" id="firstName" required>
+                        <label for="firstName">First Name*</label>
+                    </div>
+                    <div class="registration-input-group">
+                        <input type="text" id="lastName" required>
+                        <label for="lastName">Last Name*</label>
+                    </div>
+                    <div class="registration-input-group">
+                        <input type="text" id="otherName">
+                        <label for="otherName">Other Name</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Official Information Section -->
+            <section class="registration-form-section">
+                <h2>Official Information</h2>
+                <div class="registration-form-grid dual">
+                    <div class="registration-input-group">
+                        <input type="email" id="nitdaEmail" required pattern=".*@nitda\.gov\.ng">
+                        <label for="nitdaEmail">NITDA Email*</label>
+                        <span class="hint">@nitda.gov.ng required</span>
+                    </div>
+                    <div class="registration-input-group">
+                        <input type="tel" id="phone" required>
+                        <label for="phone">Phone Number*</label>
+                    </div>
+                    <div class="registration-input-group">
+                        <input type="text" id="nitdaNumber" required pattern="NITDA-\d{5}">
+                        <label for="nitdaNumber">Employee Number*</label>
+                        <span class="hint">Format: NITDA-12345</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gender and Photo Section -->
+            <section class="registration-form-section">
+                <div class="registration-form-grid dual">
+                    <div class="registration-input-group">
+                        <select id="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="registration-file-upload-group">
+                        <label class="registration-upload-label">
+                            <span class="section-label">Passport Photo*</span>
+                            <input type="file" id="passportPhoto" accept="image/*" required>
+                            <div class="registration-upload-box">
+                                <span class="registration-upload-text">JPEG/PNG (Max 2MB)</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contribution Amount Section -->
+            <section class="registration-contribution-section">
+                <h2>Contribution Amount</h2>
+                <div class="registration-input-group">
+                    <input type="number" id="contribution" required>
+                    <label for="contribution">Contribution Amount (Naira)*</label>
+                </div>
+            </section>
+
+            <!-- Next of Kin Section -->
+            <section class="registration-form-section">
+                <h2>Next of Kin Details</h2>
+                <div class="registration-form-grid triple">
+                    <div class="registration-input-group">
+                        <input type="text" id="kinName" required>
+                        <label for="kinName">Full Name*</label>
+                    </div>
+                    <div class="registration-input-group">
+                        <input type="tel" id="kinPhone" required>
+                        <label for="kinPhone">Phone Number*</label>
+                    </div>
+                    <div class="registration-input-group">
+                        <select id="relationship" required>
+                            <option value="">Relationship*</option>
+                            <option>Spouse</option>
+                            <option>Parent</option>
+                            <option>Sibling</option>
+                            <option>Other</option>
+                        </select>
+                        <div class="other-relationship">
+                            <input type="text" id="otherRelation" placeholder="Specify Relationship">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Password Section -->
+            <section class="registration-form-section">
+                <h2>Account Security</h2>
+                <div class="registration-form-grid dual">
+                    <div class="registration-input-group">
+                        <input type="password" id="password" required minlength="8">
+                        <label for="password">Create Password*</label>
+                        <div class="registration-password-strength">
+                            <div class="registration-strength-bar"></div>
+                            <span class="strength-text">Password Strength</span>
+                        </div>
+                    </div>
+                    <div class="registration-input-group">
+                        <input type="password" id="confirmPassword" required>
+                        <label for="confirmPassword">Confirm Password*</label>
+                    </div>
+                </div>
+            </section>
+
+            <div class="login-help" style="text-align: center; margin-top: 2rem;">
+                <span>Already have an account? </span>
+                <a href="/HTML/index.html">Login Here</a>
+            </div>
+
+            <button type="submit" class="registration-submit-btn">Complete Registration</button>
+        </form>
+    </div>
+
+    <script src="/script/registration.js"></script> <!-- Corrected path to script.js -->
+</body>
+
+</html>

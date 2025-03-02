@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Link to external CSS files -->
+    <link rel="stylesheet" href="/style/account.css">
+    <link rel="stylesheet" href="/style/sidebar.css">
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar-container"></div>
+
+    <div class="dashboard-container">
+        <!-- Main content area -->
+        <main class="main-content">
+            <div class="header-container" style="background-color: #004d40; padding: 1rem; border-radius: 8px;">
+                <header class="header">
+                    <div class="logo-section">
+                        <img src="../images/benovelence_logo.png" alt="Benevolence Logo" class="logo"
+                            style="max-width: 150px;">
+                        <h1 style="color: white;">User Account</h1>
+                    </div>
+                </header>
+            </div>
+
+            <div class="account-container">
+                <h2>Personal Information</h2>
+                <form id="personalInfoForm" class="account-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" value="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" value="john.doe@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" value="123-456-7890" required>
+                    </div>
+                    <button type="submit" class="btn-submit"><i class="fas fa-save"></i> Save Changes</button>
+                </form>
+
+                <h2>Bank Account Information</h2>
+                <form id="bankInfoForm" class="account-form">
+                    <div class="form-group">
+                        <label for="accountNumber">Account Number</label>
+                        <input type="text" id="accountNumber" name="accountNumber" value="1234567890" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bankName">Bank Name</label>
+                        <input type="text" id="bankName" name="bankName" value="First Bank" required>
+                    </div>
+                    <button type="submit" class="btn-submit"><i class="fas fa-save"></i> Save Changes</button>
+                </form>
+
+                <h2>Contribution</h2>
+                <div class="contribution-container">
+                    <div class="current-contribution">
+                        <h3>Current Contribution Amount</h3>
+                        <p id="currentContributionAmount">₦16,000</p>
+                    </div>
+                    <form id="contributionForm" class="account-form">
+                        <div class="form-group">
+                            <label for="contributionAmount">Apply for new Contribution Amount</label>
+                            <input type="number" id="contributionAmount" name="contributionAmount" required>
+                        </div>
+                        <button type="submit" class="btn-submit"><i class="fas fa-save"></i> Apply Contribution</button>
+                    </form>
+                </div>
+
+                <h2>Reset Password</h2>
+                <form id="passwordResetForm" class="account-form">
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" name="newPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm New Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn-submit"><i class="fas fa-save"></i> Reset Password</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Link to external JavaScript files -->
+    <script src="/script/sidebar.js"></script>
+    <script src="/script/account.js"></script>
+</body>
+
+</html>

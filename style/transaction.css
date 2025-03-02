@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.dashboard-container {
+    display: flex;
+    flex: 1;
+    margin-left: 260px;
+    /* Adjust this value to shift away from the sidebar */
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.header-container {
+    background-color: #004d40;
+    padding: 2rem;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header-container .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-container .logo {
+    max-width: 150px;
+    margin-top: 0; /* Adjusted margin */
+    margin-bottom: 1rem; /* Added bottom margin to create space before heading */
+}
+
+.header-container h1 {
+    margin-top: 0.5rem; /* Added top margin for spacing after logo */
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 18px;
+    margin-top: 0; /* Adjusted since filters now come after the table */
+    gap: 15px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.filter-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.filters input,
+.filters select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 180px;
+}
+
+#filterButton {
+    padding: 10px 20px;
+    background-color: #004d40;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#filterButton:hover {
+    background-color: #00796b;
+}
+
+.transaction-history {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem; /* Reduced top margin since it now comes right after the header */
+    margin-bottom: 2rem; /* Added bottom margin to create space before filters */
+    color: black;
+    font-size: 18px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px; /* Fixed height for scrollability */
+    position: relative; /* For sticky header positioning */
+    overflow: hidden; /* Hide overflow from the container itself */
+}
+
+.transaction-history table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+}
+
+.transaction-history thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #f2f2f2;
+}
+
+.transaction-history tbody {
+    display: block;
+    max-height: calc(500px - 50px); /* Height minus approximate header height */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.transaction-history thead, 
+.transaction-history tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.transaction-history th,
+.transaction-history td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.transaction-history th {
+    background-color: #f2f2f2;
+    text-align: center;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+/* Additional style for better scrollbar appearance */
+.transaction-history tbody::-webkit-scrollbar {
+    width: 8px;
+}
+
+.transaction-history tbody::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.transaction-history tbody::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.transaction-history tbody::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

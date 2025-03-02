@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cash Credit (Qard Hasan) - Benevolence Cooperative</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/style/global.css">
+  <link rel="stylesheet" href="/style/cash_loan.css">
+</head>
+
+<body class="cash-loan-body">
+  <div class="cash-loan-sidebar" id="sidebar-container"></div>
+
+  <div class="cash-loan-dashboard-container">
+    <!-- Main content area -->
+    <main class="cash-loan-main-content">
+      <header class="lease-header">
+        <div class="logo-section"
+          style="background-color: #004d40; padding: 1rem; border-radius: 8px; text-align: center;">
+          <img src="../images/benovelence_logo.png" alt="Benevolence Logo" class="logo" style="max-width: 150px;">
+          <h1 style="color: white;">Qard Hasan (Cash Credit)</h1>
+        </div>
+      </header>
+
+      <div class="cash-loan-container">
+        <!-- Form header with gradient background -->
+
+
+        <div class="info-section">
+          <div class="description-card">
+            <h2><i class="fas fa-hand-holding-usd"></i> What is Qard Hasan?</h2>
+            <p>Qard Hasan is a benevolent cash credit facility where members receive financial assistance with the
+              understanding that the amount borrowed will be repaid without interest.</p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <i class="fas fa-money-bill-wave"></i>
+              <h3>Interest-Free</h3>
+              <p>Members receive financial assistance without any interest charges.</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-calendar-alt"></i>
+              <h3>Flexible Repayment</h3>
+              <p>Repayment is made within an agreed period.</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-file-invoice-dollar"></i>
+              <h3>Administrative Charge</h3>
+              <p>A fixed administrative charge may apply.</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-file-contract"></i>
+              <h3>Transparent Terms</h3>
+              <p>Clear documentation of credit terms and conditions.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agreement Section -->
+        <div class="agreement-section">
+          <p>
+            Please read the
+            <a href="BCS_Credit_Policy_Agreement_Framework.pdf" download>BCS Credit Policy Agreement
+              Framework</a>
+            carefully before applying.
+          </p>
+          <div class="agreement-checkbox">
+            <input type="checkbox" id="agreementCheckbox">
+            <label for="agreementCheckbox">I have read and agree to the terms.</label>
+          </div>
+        </div>
+
+        <!-- Cash credit application form -->
+        <div class="application-section">
+          <div class="cash-loan-form-header">
+            <h2>Qard Hasan Application</h2>
+          </div>
+          <form id="cashForm">
+            <div class="form-group">
+              <label>Credit Amount (₦)</label>
+              <input type="number" id="loanAmount" required>
+            </div>
+            <div class="form-group">
+              <label>Guarantor Employee ID</label>
+              <input type="text" id="guarantorEmployeeID" required>
+            </div>
+            <div class="form-group">
+              <label>Account Number</label>
+              <input type="text" id="accountNumber" required>
+            </div>
+            <div class="form-group">
+              <label>Bank Name</label>
+              <input type="text" id="bankName" required>
+            </div>
+            <div class="form-group">
+              <label>Repayment Period (months)</label>
+              <select id="repaymentPeriod" required>
+                <option value="">Select Repayment Period</option>
+                <option value="1">1 month</option>
+                <option value="2">2 months</option>
+                <option value="3">3 months</option>
+                <option value="4">4 months</option>
+                <option value="5">5 months</option>
+                <option value="6">6 months</option>
+                <option value="7">7 months</option>
+                <option value="8">8 months</option>
+                <option value="9">9 months</option>
+                <option value="10">10 months</option>
+              </select>
+            </div>
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> Submit Application
+            </button>
+          </form>
+        </div>
+
+        <div class="calculator-section">
+          <h2>Repayment Calculator</h2>
+          <div id="calculationResults">
+            <div class="calc-item">
+              <span>Total Amount:</span>
+              <span id="totalAmount">₦0</span>
+            </div>
+            <div class="calc-item">
+              <span>Monthly Payment:</span>
+              <span id="monthlyPayment">₦0</span>
+            </div>
+            <div class="calc-item">
+              <span>Repayment Period:</span>
+              <span id="repaymentPeriodCalc">0 months</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/script/cash_loan.js"></script>
+  <script src="/script/sidebar.js"></script>
+</body>
+
+</html>

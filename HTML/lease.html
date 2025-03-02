@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ijarah (Lease Financing) - Benevolence Cooperative</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/style/sidebar.css">
+    <link rel="stylesheet" href="/style/lease.css">
+</head>
+
+<body class="lease-body">
+    <div class="lease-sidebar" id="sidebar-container"></div>
+
+    <div class="lease-dashboard-container">
+        <main class="lease-main-content">
+            <header class="lease-header">
+                <div class="logo-section">
+                    <img src="../images/benovelence_logo.png" alt="Benevolence Logo" class="logo"
+                        style="max-width: 150px;">
+                    <h1>Ijarah (Lease Financing)</h1>
+                </div>
+            </header>
+
+            <div class="lease-container">
+                <div class="info-section">
+                    <div class="description-card">
+                        <h2><i class="fas fa-building"></i> What is Ijarah </h2>
+                        <p>Ijarah is a Shariah-compliant leasing arrangement where BCS purchases assets and leases them
+                            to members with flexible ownership transfer options.</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-key"></i>
+                            <h3>Asset Leasing</h3>
+                            <p>Access to high-value assets without upfront ownership</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-handshake"></i>
+                            <h3>Flexible Terms</h3>
+                            <p>Customizable lease periods and payment schedules</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-file-contract"></i>
+                            <h3>Clear Contracts</h3>
+                            <p>Transparent lease agreements with defined terms</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-undo"></i>
+                            <h3>Ownership Option</h3>
+                            <p>Potential ownership transfer at lease end</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-section">
+                    <div class="lease-form-header">
+                        <h2>Ijarah Application</h2>
+                    </div>
+                    <form id="leaseForm">
+                        <div class="form-group">
+                            <label>Asset Value (₦)</label>
+                            <input type="number" id="leaseAmount" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Guarantor Name</label>
+                            <input type="text" id="guarantorName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Guarantor Email</label>
+                            <input type="email" id="guarantorEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Repayment Period (months)</label>
+                            <select id="repaymentPeriod" required>
+                                <option value="">Select Repayment Period</option>
+                                <option value="1">1 month</option>
+                                <option value="2">2 months</option>
+                                <option value="3">3 months</option>
+                                <option value="4">4 months</option>
+                                <option value="5">5 months</option>
+                                <option value="6">6 months</option>
+                                <option value="7">7 months</option>
+                                <option value="8">8 months</option>
+                                <option value="9">9 months</option>
+                                <option value="10">10 months</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Asset Invoice Upload</label>
+                            <input type="file" id="invoiceUpload" accept=".pdf,.jpg,.jpeg,.png" required>
+                        </div>
+                        <div class="agreement-section">
+                            <p>Please read the <a href="BCS_Credit_Policy_Agreement_Framework.pdf" download>BCS Credit
+                                    Policy Agreement Framework</a> carefully before applying.</p>
+                            <div class="agreement-checkbox">
+                                <input type="checkbox" id="agreementCheckbox" required>
+                                <label for="agreementCheckbox">I agree to the terms and conditions</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Submit Application
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/script/sidebar.js"></script>
+    <script src="/script/lease.js"></script>
+</body>
+
+</html>

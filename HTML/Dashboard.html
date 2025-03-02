@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benevolence Cooperative Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style/sidebar.css">
-    <link rel="stylesheet" href="style/Dashboard.css">
+    <link rel="stylesheet" href="/style/sidebar.css"> <!-- Corrected path to sidebar.css -->
+    <link rel="stylesheet" href="/style/Dashboard.css"> <!-- Corrected path to Dashboard.css -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -18,6 +18,7 @@
 
         <main class="main-content">
             <div class="header">
+                <img src="../images/benovelence_logo.png" alt="Benevolence Logo" class="logo" style="max-width: 120px;">
                 <h1>Welcome to Your Benevolence Cooperative Dashboard</h1>
                 <div class="user-profile">
                     <div class="notification-bell">
@@ -32,10 +33,13 @@
                         </div>
                     </div>
                     <span>Farouk Mahmoud</span>
-                    <div class="avatar">FM</div>
+                    <div class="avatar">
+                        <img src="../images/employee_photo.jpg" alt="Employee Photo" class="employee-photo">
+                    </div>
                 </div>
             </div>
 
+            <!-- Dashboard cards grid will automatically reorganize based on the new CSS -->
             <div class="dashboard-cards">
                 <div class="card fund-management">
                     <h3><i class="fas fa-wallet"></i> Funds Management</h3>
@@ -48,6 +52,7 @@
                             <p>Savings: <strong>₦1,650,000</strong> (60%)</p>
                             <p>Investment: <strong>₦1,100,000</strong> (40%)</p>
                         </div>
+                        <div class="contribution-amount">Contribution Amount: ₦500,000</div>
                         <form id="withdrawalForm" class="withdrawal-form">
                             <div class="form-group">
                                 <label>Withdrawal Amount (₦)</label>
@@ -79,12 +84,17 @@
                 <div class="card credit-status">
                     <h3><i class="fas fa-file-invoice-dollar"></i> Current Credit</h3>
                     <div class="loan-status">
-                        <p>Active Credits: <strong>2</strong></p>
-                        <p>Total Outstanding: <strong>₦1,250,000</strong></p>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 65%"></div>
+                        <div>
+                            <p>Active Credits: <strong>2</strong></p>
+                            <p>Total Outstanding: <strong>₦1,250,000</strong></p>
                         </div>
-                        <p>Repayment Progress: 65%</p>
+                        <div>
+                            <p>Repayment Progress: <strong>65%</strong></p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 65%"></div>
+                            </div>
+                            <p>Next Payment Date: <strong>25-Apr-2025</strong></p>
+                        </div>
                     </div>
                 </div>
 
@@ -145,13 +155,17 @@
 
                 <div class="card financial-analysis">
                     <h3><i class="fas fa-chart-line"></i> Financial Analysis</h3>
-                    <label for="graphType">Select Graph:</label>
-                    <select id="graphType">
-                        <option value="financialHistory">Financial History</option>
-                        <option value="creditDistribution">Loan Distribution</option>
-                        <option value="totalContribution">Total Contribution</option>
-                    </select>
-                    <canvas id="dashboardChart"></canvas>
+                    <div class="chart-controls">
+                        <label for="graphType">Select Graph:</label>
+                        <select id="graphType">
+                            <option value="financialHistory">Financial History</option>
+                            <option value="creditDistribution">Loan Distribution</option>
+                            <option value="totalContribution">Total Contribution</option>
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="dashboardChart"></canvas>
+                    </div>
                 </div>
 
                 <div class="card financial-summary-card">
@@ -183,7 +197,27 @@
                                 <td>Removed</td>
                                 <td>Credit Repayment</td>
                             </tr>
-                            <!-- Add more rows as needed -->
+                            <tr>
+                                <td>2025-02-15</td>
+                                <td>09:15 AM</td>
+                                <td>₦5000</td>
+                                <td>Added</td>
+                                <td>Monthly Contribution</td>
+                            </tr>
+                            <tr>
+                                <td>2025-02-28</td>
+                                <td>11:30 AM</td>
+                                <td>₦15000</td>
+                                <td>Removed</td>
+                                <td>Withdrawal</td>
+                            </tr>
+                            <tr>
+                                <td>2025-03-15</td>
+                                <td>10:45 AM</td>
+                                <td>₦5000</td>
+                                <td>Added</td>
+                                <td>Monthly Contribution</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -191,8 +225,8 @@
         </main>
     </div>
 
-    <script src="script/Dashboard.js"></script>
-    <script src="script/sidebar.js"></script>
+    <script src="/script/Dashboard.js"></script> <!-- Corrected path to Dashboard.js -->
+    <script src="/script/sidebar.js"></script> <!-- Corrected path to sidebar.js -->
 </body>
 
 </html>
